@@ -2,6 +2,8 @@
 # Diese .gitignore-Datei wurde von Microsoft(R) Visual Studio automatisch erstellt.
 ################################################################################
 
+**/bin/
+**/obj/
 /.vs
 /MyPortfolio/bin/Debug/net9.0/MyPortfolio.dll
 /MyPortfolio/bin/Debug/net9.0/MyPortfolio.pdb
