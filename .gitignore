@@ -21,3 +21,5 @@
 /MyPortfolio/publish/publish/wwwroot/_framework/blazor.boot.json
 /MyPortfolio/publish/wwwroot/css
 /MyPortfolio/publish/wwwroot/_framework
+/MyPortfolio/bin/Debug/net10.0
+/MyPortfolio/obj/Debug/net10.0
