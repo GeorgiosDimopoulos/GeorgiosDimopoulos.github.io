@@ -1,15 +1,17 @@
 ﻿@page "/work"
 @using MudBlazor
 
-<MudContainer MaxWidth="MaxWidth.False" Class="mt-6 px-6">
-    <MudPaper Elevation="3" Class="p-6 w-100" Style="border-radius:16px;">
+<PageTitle>Work | Georgios Dimopoulos</PageTitle>
+
+<MudContainer MaxWidth="MaxWidth.Large" Class="portfolio-page work-page">
+    <MudPaper Elevation="0" Class="p-6 w-100">
         <MudText Typo="Typo.h3" Class="mb-1">Work</MudText>
         <MudText Typo="Typo.subtitle1" Color="Color.Secondary" Class="mb-4">
             Professional Experience
         </MudText>
 
-        <!-- TSG -->
-        <MudText Typo="Typo.h6" Class="mb-0">
+        <article class="work-experience work-tone-one">
+            <MudText Typo="Typo.h6" Class="mb-0">
             <b>TSG Group</b>, Munich, October 2024 – Present
         </MudText>
         <MudText Typo="Typo.body2" Class="mud-text-secondary mb-2">
@@ -33,12 +35,11 @@
             <MudListItem T="string" Class="ml-6">
                 <MudText Typo="Typo.body2">– Contribution to a legacy production project in Python with small, isolated adjustments</MudText>
             </MudListItem>
-        </MudList>
+            </MudList>
+        </article>
 
-        <MudDivider Class="my-4" />
-
-        <!-- Volke -->
-        <MudText Typo="Typo.h6" Class="mb-0">
+        <article class="work-experience work-tone-two">
+            <MudText Typo="Typo.h6" Class="mb-0">
             <b>Volke Consulting Engineers</b>, BMW Group, Munich, February 2024 – July 2024
         </MudText>
         <MudText Typo="Typo.body2" Class="mud-text-secondary mb-2">
@@ -62,12 +63,11 @@
             <MudListItem T="string" Class="ml-6">
                 <MudText Typo="Typo.body2">– Focused on clean handovers, documentation, and cross-team collaboration in German</MudText>
             </MudListItem>
-        </MudList>
+            </MudList>
+        </article>
 
-        <MudDivider Class="my-4" />
-
-        <!-- Grenzebach -->
-        <MudText Typo="Typo.h6" Class="mb-0">
+        <article class="work-experience work-tone-three">
+            <MudText Typo="Typo.h6" Class="mb-0">
             <b>Grenzebach Maschinenbau GmbH Hellas</b>, Athens, September 2021 – October 2023
         </MudText>
         <MudText Typo="Typo.body2" Class="mud-text-secondary mb-2">
@@ -99,11 +99,11 @@
             <MudListItem T="string" Class="ml-6">
                 <MudText Typo="Typo.body2">– E2E tests with Selenium; structured documentation in TestRail</MudText>
             </MudListItem>
-        </MudList>
+            </MudList>
+        </article>
 
-        <MudDivider Class="my-4" />
-
-        <MudText Typo="Typo.h6" Class="mb-0">
+        <article class="work-experience work-tone-four">
+            <MudText Typo="Typo.h6" Class="mb-0">
             <b>Metro AEBE</b>, Athens, October 2020 – August 2021
         </MudText>
         <MudText Typo="Typo.body2" Class="mud-text-secondary mb-2">
@@ -129,8 +129,9 @@
             <MudListItem T="string" Class="ml-6">
                 <MudText Typo="Typo.body2">– External tools: MSSQL database and IIS Microsoft Web Server (cashier app updates)</MudText>
             </MudListItem>
-        </MudList>
-    </MudPaper>
-</MudContainer>
+                    </MudList>
+                </article>
+            </MudPaper>
+        </MudContainer>
 
 @code { }
