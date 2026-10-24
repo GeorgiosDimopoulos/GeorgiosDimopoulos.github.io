@@ -1,67 +1,48 @@
 ﻿@page "/"
 
-@using MudBlazor
-@inherits LayoutComponentBase
-@inject NavigationManager Nav
+<PageTitle>Georgios Dimopoulos | Software Developer</PageTitle>
 
-<MudContainer MaxWidth="MaxWidth.False" Style="padding:0;height:calc(100vh - 64px); display:flex; flex-direction:column">
-    <MudText Typo="Typo.h5" Class="font-semibold mb-4">Georgios Dimopoulos, 32 years old, developer, Munich</MudText>
-    <MudGrid GutterSize="0" Justify="Justify.FlexStart"
-             AlignItems="AlignItems.Stretch"
-             Style="flex:1;padding:0">
-        <MudItem xs="12" sm="6" md="4" lg="4" Style="padding-right:1px;width:100%">
-            <MudButton Style="width:100%;
-                              height:100%;
-                              background-image: linear-gradient(rgba(173, 216, 230, 0.45), rgba(173, 216, 230, 0.45)), url('images/uni.png');
-                              filter:brightness(1.2);
-                              background-size:cover;
-                              background-position:center;
-                              color:white;"
-                       OnClick="@OnStudies">
-                STUDIES
-            </MudButton>
-        </MudItem>
-        <MudItem xs="12" sm="6" md="4" lg="4" Style="padding-right:1px; width:100%">
-            <MudButton Style="width:100%;
-                              height:100%;
-                              background-image:
-                              linear-gradient(rgba(173, 216, 230, 0.45), rgba(173, 216, 230, 0.45)), url('images/work.png');
-                              filter:brightness(1.2);
-                              background-size:cover;
-                              background-position:center;
-                              color:white;"
-                       OnClick="@OnWork">
-                WORK
-            </MudButton>
-        </MudItem>
-        <MudItem xs="12" sm="6" md="4" lg="4" Style="padding-right:1px;width:100%">
-            <MudButton Style="width:100%;
-                              height:100%;
-                              background-image: linear-gradient(rgba(173, 216, 230, 0.45), rgba(173, 216, 230, 0.45)), url('images/park.png');
-                              filter:brightness(1.2);
-                              background-size:cover;
-                              background-position:center;
-                              color:white;"
-                       OnClick="@OnLife">
-                LIFE
-            </MudButton>
-        </MudItem>
-    </MudGrid>
-</MudContainer>
+<section class="home-page">
+    <div class="hero-copy">
+        <p class="eyebrow"><span class="status-dot"></span> Software developer · Munich, Germany</p>
+        <h3>Building thoughtful software for <span>real-world problems.</span></h3>
+        <p class="hero-description">
+            I’m Georgios, a software developer working across .NET, web applications, and backend systems.
+            Explore my experience, studies, and the journey that brought me to Munich.
+        </p>
+        <a class="text-link" href="/work">Explore my work <span aria-hidden="true">↗</span></a>
+    </div>
 
-@code {
-    private void OnStudies()
-    {
-        Nav.NavigateTo("/studies");
-    }
+    <div class="section-heading">
+        <span>Get to know me</span>
+        <span class="section-line" aria-hidden="true"></span>
+        <span class="section-index">01 — 03</span>
+    </div>
 
-    private void OnWork()
-    {
-        Nav.NavigateTo("/work");
-    }
-
-    private void OnLife()
-    {
-        Nav.NavigateTo("/life");
-    }
-}
+    <nav class="feature-grid" aria-label="Explore the portfolio">
+        <a class="feature-card studies-card" href="/studies">
+            <span class="card-number">01 / EDUCATION</span>
+            <span class="card-content">
+                <span class="card-title">Studies</span>
+                <span class="card-description">What I learned, and the places that shaped me.</span>
+            </span>
+            <span class="card-arrow" aria-hidden="true">↗</span>
+        </a>
+        <a class="feature-card work-card" href="/work">
+            <span class="card-number">02 / EXPERIENCE</span>
+            <span class="card-content">
+                <span class="card-title">Work</span>
+                <span class="card-description">A look at the teams and products I’ve worked with.</span>
+            </span>
+            <span class="card-arrow" aria-hidden="true">↗</span>
+        </a>
+        <a class="feature-card life-card" href="/life">
+            <span class="card-number">03 / JOURNEY</span>
+            <span class="card-content">
+                <span class="card-title">Life</span>
+                <span class="card-description">The path from Athens to Stuttgart, Samos, and Munich.</span>
+            </span>
+            <span class="card-arrow" aria-hidden="true">↗</span>
+        </a>
+    </nav>
+</section>
