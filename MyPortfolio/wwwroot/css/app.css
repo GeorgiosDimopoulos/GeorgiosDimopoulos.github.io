@@ -1121,6 +1121,38 @@ body {
     }
 }
 
+.life-page > .mud-stack {
+    gap: 12px !important;
+}
+
+.life-page .life-hero {
+    padding: 18px !important;
+}
+
+.life-page .life-overview {
+    gap: 8px !important;
+}
+
+.life-page .life-section-heading {
+    margin: 0;
+}
+
+.life-page .mud-timeline-item {
+    padding-bottom: 12px !important;
+}
+
+.life-page .life-chapter-card {
+    padding: 12px !important;
+}
+
+.life-page .life-chapter-card .mud-stack {
+    gap: 4px !important;
+}
+
+.life-page .life-next-steps {
+    margin-top: 0;
+}
+
 .life-page {
     max-width: 960px;
 }

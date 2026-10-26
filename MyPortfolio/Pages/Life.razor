@@ -4,81 +4,13 @@
 <PageTitle>Life | Georgios Dimopoulos</PageTitle>
 
 <MudContainer MaxWidth="MaxWidth.Large" Class="portfolio-page life-page">
-    <MudStack Spacing="4">
-        <MudPaper Elevation="0" Class="life-hero pa-5">
-            <MudStack Spacing="2">
-                <MudText Typo="Typo.overline" Class="life-eyebrow">THE JOURNEY SO FAR</MudText>
-                <MudText Typo="Typo.h3" Class="life-title">A life shaped by new places</MudText>
-                <MudText Typo="Typo.body1" Class="life-intro">
-                    From Athens to Munich, each chapter has brought a new place to learn, work, and make a home.
-                </MudText>
-                <MudStack Direction="Row" Spacing="2" Class="life-overview">
-                    <MudChip T="string" Variant="Variant.Outlined" Color="Color.Warning" Icon="@Icons.Material.Filled.Person">Age 32</MudChip>
-                    <MudChip T="string" Variant="Variant.Outlined" Color="Color.Warning" Icon="@Icons.Material.Filled.Public">2 countries</MudChip>
-                    <MudChip T="string" Variant="Variant.Outlined" Color="Color.Warning" Icon="@Icons.Material.Filled.Bookmark">5 chapters</MudChip>
-                    <MudText Typo="Typo.caption" Class="life-overview-note">One journey, still unfolding</MudText>
-                </MudStack>
-            </MudStack>
-        </MudPaper>
-
+    <MudStack Spacing="2">
         <MudStack Direction="Row" AlignItems="AlignItems.Center" Justify="Justify.SpaceBetween" Class="life-section-heading">
             <MudText Typo="Typo.h5">Places &amp; milestones</MudText>
             <MudText Typo="Typo.overline">ATHENS → MUNICH</MudText>
         </MudStack>
 
-        <MudTimeline Dense="true" Class="life-timeline">
-            <MudTimelineItem Icon="@Icons.Material.Filled.ChildCare" Color="Color.Warning">
-                <MudPaper Elevation="0" Class="life-chapter-card pa-4">
-                    <MudStack Spacing="1">
-                        <MudStack Direction="Row" AlignItems="AlignItems.Center" Justify="Justify.SpaceBetween">
-                            <MudChip T="string" Size="Size.Small" Variant="Variant.Outlined" Color="Color.Warning">CHAPTER 01 · GREECE</MudChip>
-                            <MudText Typo="Typo.caption">Until age 18</MudText>
-                        </MudStack>
-                        <MudText Typo="Typo.h6">Childhood in Athens</MudText>
-                        <MudText Typo="Typo.body2">The first chapter began in Athens, where I grew up.</MudText>
-                    </MudStack>
-                </MudPaper>
-            </MudTimelineItem>
-
-            <MudTimelineItem Icon="@Icons.Material.Filled.Flight" Color="Color.Warning">
-                <MudPaper Elevation="0" Class="life-chapter-card pa-4">
-                    <MudStack Spacing="1">
-                        <MudStack Direction="Row" AlignItems="AlignItems.Center" Justify="Justify.SpaceBetween">
-                            <MudChip T="string" Size="Size.Small" Variant="Variant.Outlined" Color="Color.Warning">CHAPTER 02 · GERMANY</MudChip>
-                            <MudText Typo="Typo.caption">3 years</MudText>
-                        </MudStack>
-                        <MudText Typo="Typo.h6">Youth in Stuttgart</MudText>
-                        <MudText Typo="Typo.body2">A new country, with 1.5 years of German lessons and 1 year of Informatics studies.</MudText>
-                    </MudStack>
-                </MudPaper>
-            </MudTimelineItem>
-
-            <MudTimelineItem Icon="@Icons.Material.Filled.School" Color="Color.Warning">
-                <MudPaper Elevation="0" Class="life-chapter-card pa-4">
-                    <MudStack Spacing="1">
-                        <MudStack Direction="Row" AlignItems="AlignItems.Center" Justify="Justify.SpaceBetween">
-                            <MudChip T="string" Size="Size.Small" Variant="Variant.Outlined" Color="Color.Warning">CHAPTER 03 · GREECE</MudChip>
-                            <MudText Typo="Typo.caption">5 years</MudText>
-                        </MudStack>
-                        <MudText Typo="Typo.h6">Studies in Samos</MudText>
-                        <MudText Typo="Typo.body2">I returned to Greece for university and studied at the University of the Aegean.</MudText>
-                    </MudStack>
-                </MudPaper>
-            </MudTimelineItem>
-
-            <MudTimelineItem Icon="@Icons.Material.Filled.Work" Color="Color.Warning">
-                <MudPaper Elevation="0" Class="life-chapter-card pa-4">
-                    <MudStack Spacing="1">
-                        <MudStack Direction="Row" AlignItems="AlignItems.Center" Justify="Justify.SpaceBetween">
-                            <MudChip T="string" Size="Size.Small" Variant="Variant.Outlined" Color="Color.Warning">CHAPTER 04 · GREECE</MudChip>
-                            <MudText Typo="Typo.caption">3 years</MudText>
-                        </MudStack>
-                        <MudText Typo="Typo.h6">Work in Athens</MudText>
-                        <MudText Typo="Typo.body2">The next chapter began with my first professional experiences in Athens.</MudText>
-                    </MudStack>
-                </MudPaper>
-            </MudTimelineItem>
-
+        <MudTimeline Dense="true" Class="life-timeline">            
             <MudTimelineItem Icon="@Icons.Material.Filled.LocationCity" Color="Color.Warning">
                 <MudPaper Elevation="0" Class="life-chapter-card life-chapter-current pa-4">
                     <MudStack Spacing="1">
@@ -87,12 +19,59 @@
                             <MudText Typo="Typo.caption">2 years</MudText>
                         </MudStack>
                         <MudText Typo="Typo.h6">Now in Munich</MudText>
-                        <MudText Typo="Typo.body2">Today, Munich is home as I continue to grow as a software developer.</MudText>
+                        <MudText Typo="Typo.body2">Munich, Germany · Software developer</MudText>
+                    </MudStack>
+                </MudPaper>
+            </MudTimelineItem>
+            <MudTimelineItem Icon="@Icons.Material.Filled.Work" Color="Color.Warning">
+                <MudPaper Elevation="0" Class="life-chapter-card pa-4">
+                    <MudStack Spacing="1">
+                        <MudStack Direction="Row" AlignItems="AlignItems.Center" Justify="Justify.SpaceBetween">
+                            <MudChip T="string" Size="Size.Small" Variant="Variant.Outlined" Color="Color.Warning">CHAPTER 04 · GREECE</MudChip>
+                            <MudText Typo="Typo.caption">3 years</MudText>
+                        </MudStack>
+                        <MudText Typo="Typo.h6">Work in Athens</MudText>
+                        <MudText Typo="Typo.body2">Athens, Greece</MudText>
+                    </MudStack>
+                </MudPaper>
+            </MudTimelineItem>
+            <MudTimelineItem Icon="@Icons.Material.Filled.School" Color="Color.Warning">
+                <MudPaper Elevation="0" Class="life-chapter-card pa-4">
+                    <MudStack Spacing="1">
+                        <MudStack Direction="Row" AlignItems="AlignItems.Center" Justify="Justify.SpaceBetween">
+                            <MudChip T="string" Size="Size.Small" Variant="Variant.Outlined" Color="Color.Warning">CHAPTER 03 · GREECE</MudChip>
+                            <MudText Typo="Typo.caption">5 years</MudText>
+                        </MudStack>
+                        <MudText Typo="Typo.h6">Studies in Samos</MudText>
+                        <MudText Typo="Typo.body2">University of the Aegean · Samos, Greece</MudText>
                     </MudStack>
                 </MudPaper>
             </MudTimelineItem>
         </MudTimeline>
-
+        <MudTimelineItem Icon="@Icons.Material.Filled.Flight" Color="Color.Warning">
+            <MudPaper Elevation="0" Class="life-chapter-card pa-4">
+                <MudStack Spacing="1">
+                    <MudStack Direction="Row" AlignItems="AlignItems.Center" Justify="Justify.SpaceBetween">
+                        <MudChip T="string" Size="Size.Small" Variant="Variant.Outlined" Color="Color.Warning">CHAPTER 02 · GERMANY</MudChip>
+                        <MudText Typo="Typo.caption">3 years</MudText>
+                    </MudStack>
+                    <MudText Typo="Typo.h6">Youth in Stuttgart</MudText>
+                    <MudText Typo="Typo.body2">1.5 years of German lessons · 1 year of Informatics studies</MudText>
+                </MudStack>
+            </MudPaper>
+        </MudTimelineItem>
+        <MudTimelineItem Icon="@Icons.Material.Filled.ChildCare" Color="Color.Warning">
+            <MudPaper Elevation="0" Class="life-chapter-card pa-4">
+                <MudStack Spacing="1">
+                    <MudStack Direction="Row" AlignItems="AlignItems.Center" Justify="Justify.SpaceBetween">
+                        <MudChip T="string" Size="Size.Small" Variant="Variant.Outlined" Color="Color.Warning">CHAPTER 01 · GREECE</MudChip>
+                        <MudText Typo="Typo.caption">Until age 18</MudText>
+                    </MudStack>
+                    <MudText Typo="Typo.h6">Childhood in Athens</MudText>
+                    <MudText Typo="Typo.body2">Athens, Greece</MudText>
+                </MudStack>
+            </MudPaper>
+        </MudTimelineItem>
         <MudGrid Spacing="2" Class="life-next-steps">
             <MudItem xs="12" sm="6">
                 <MudButton Href="/studies" Variant="Variant.Outlined" Color="Color.Warning" EndIcon="@Icons.Material.Filled.ArrowForward" FullWidth="true">
