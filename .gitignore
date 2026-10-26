@@ -24,3 +24,10 @@
 /MyPortfolio/bin/Debug/net10.0
 /MyPortfolio/obj/Debug/net10.0
 /.vs/CopilotSnapshots/6C9185DEB509864BAEA14B68F74775BC
+
+# Build output and local copies of the published site
+bin/
+obj/
+publish/
+.vs/
+/GeorgiosDimopoulos.github.io/
