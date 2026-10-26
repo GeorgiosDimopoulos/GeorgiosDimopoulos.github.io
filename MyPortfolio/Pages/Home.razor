@@ -5,22 +5,10 @@
 @inject NavigationManager Nav
 
 <MudContainer MaxWidth="MaxWidth.False" Style="padding:0;height:calc(100vh - 64px); display:flex; flex-direction:column">
-    <MudText Typo="Typo.h5" Class="font-semibold mb-4">Georgios Dimopoulos, 32 years old, developer, Munich</MudText>
+    <MudText Typo="Typo.h5" Class="font-semibold mb-4">Georgios Dimopoulos, 33 years old, developer, Munich</MudText>
     <MudGrid GutterSize="0" Justify="Justify.FlexStart"
              AlignItems="AlignItems.Stretch"
              Style="flex:1;padding:0">
-        <MudItem xs="12" sm="6" md="4" lg="4" Style="padding-right:1px;width:100%">
-            <MudButton Style="width:100%;
-                height:100%;
-                background-image: linear-gradient(rgba(173, 216, 230, 0.45), rgba(173, 216, 230, 0.45)), url('images/uni.png');
-                filter:brightness(1.2);
-                background-size:cover;
-                background-position:center;
-                color:white;"
-                       OnClick="@OnStudies">
-                STUDIES
-            </MudButton>
-        </MudItem>
         <MudItem xs="12" sm="6" md="4" lg="4" Style="padding-right:1px; width:100%">
             <MudButton Style="width:100%;
                 height:100%;
@@ -32,6 +20,18 @@
                 color:white;"
                        OnClick="@OnWork">
                 WORK
+            </MudButton>
+        </MudItem>
+        <MudItem xs="12" sm="6" md="4" lg="4" Style="padding-right:1px;width:100%">
+            <MudButton Style="width:100%;
+                height:100%;
+                background-image: linear-gradient(rgba(173, 216, 230, 0.45), rgba(173, 216, 230, 0.45)), url('images/uni.png');
+                filter:brightness(1.2);
+                background-size:cover;
+                background-position:center;
+                color:white;"
+                       OnClick="@OnStudies">
+                STUDIES
             </MudButton>
         </MudItem>
         <MudItem xs="12" sm="6" md="4" lg="4" Style="padding-right:1px;width:100%">
