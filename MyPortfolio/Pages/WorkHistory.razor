@@ -4,134 +4,134 @@
 <PageTitle>Work | Georgios Dimopoulos</PageTitle>
 
 <MudContainer MaxWidth="MaxWidth.Large" Class="portfolio-page work-page">
-    <MudPaper Elevation="0" Class="p-6 w-100">
-        <MudText Typo="Typo.h3" Class="mb-1">Work</MudText>
-        <MudText Typo="Typo.subtitle1" Color="Color.Secondary" Class="mb-4">
-            Professional Experience
-        </MudText>
+    <MudPaper Elevation="0" Class="w-100">
+        <header class="work-header">
+            <MudText Typo="Typo.h3" Class="mb-1">Work</MudText>
+            <MudText Typo="Typo.subtitle1" Class="mb-4">Professional Experience</MudText>
+        </header>
 
-        <article class="work-experience work-tone-one">
-            <MudText Typo="Typo.h6" Class="mb-0">
-            <b>TSG Group</b>, Munich, October 2024 – August 2026
-        </MudText>
-        <MudText Typo="Typo.body2" Class="mud-text-secondary mb-2">
-            Technical development in the field of gas station solutions. German and English-speaking position.
-        </MudText>
+        <div class="work-timeline">
+            @for (var i = 0; i < _jobs.Count; i++)
+            {
+                var job = _jobs[i];
+                <article class="work-experience work-tone-@(i % 4)">
+                    <span class="work-dot" aria-hidden="true"></span>
 
-        <MudList T="string" Dense="true" Style="margin-top:-6px;">
-            <MudListItem T="string">
-                <MudText Typo="Typo.body1"><b>Backend and Web Development</b></MudText>
-            </MudListItem>
+                    <div class="work-head">
+                        <h2 class="work-company">@job.Company</h2>
+                        <span class="work-dates">@job.Dates</span>
+                    </div>
+                    <div class="work-meta">@job.Location</div>
+                    <p class="work-summary">@job.Summary</p>
 
-            <MudListItem T="string" Class="ml-6">
-                <MudText Typo="Typo.body2">– Main project: .NET Blazor Web gas station management application</MudText>
-            </MudListItem>
-            <MudListItem T="string" Class="ml-6">
-                <MudText Typo="Typo.body2">– Worked on APIs, validation, and integration tests for business flows (transactions, accounts, vouchers)</MudText>
-            </MudListItem>
-            <MudListItem T="string" Class="ml-6">
-                <MudText Typo="Typo.body2">– UI work: DataGrids, filters/sorting, dialogs, and improved error handling & notifications</MudText>
-            </MudListItem>
-            <MudListItem T="string" Class="ml-6">
-                <MudText Typo="Typo.body2">– Contribution to a legacy production project in Python with small, isolated adjustments</MudText>
-            </MudListItem>
-            </MudList>
-        </article>
-
-        <article class="work-experience work-tone-two">
-            <MudText Typo="Typo.h6" Class="mb-0">
-            <b>Volke Consulting Engineers</b>, BMW Group, Munich, February 2024 – July 2024
-        </MudText>
-        <MudText Typo="Typo.body2" Class="mud-text-secondary mb-2">
-            Technical development in automotive engineering. German-speaking position.
-        </MudText>
-
-        <MudList T="string" Dense="true" Style="margin-top:-6px;">
-            <MudListItem T="string">
-                <MudText Typo="Typo.body1"><b>Backend and Database Development</b> <span class="mud-text-secondary">- 6 months</span></MudText>
-            </MudListItem>
-
-            <MudListItem T="string" Class="ml-6">
-                <MudText Typo="Typo.body2">– .NET WPF frontend application with gRPC-based data access</MudText>
-            </MudListItem>
-            <MudListItem T="string" Class="ml-6">
-                <MudText Typo="Typo.body2">– Middleware backend in Java Spring Boot (service orchestration & integrations)</MudText>
-            </MudListItem>
-            <MudListItem T="string" Class="ml-6">
-                <MudText Typo="Typo.body2">– Oracle PL/SQL integration through script development (queries, procedures, maintenance)</MudText>
-            </MudListItem>
-            <MudListItem T="string" Class="ml-6">
-                <MudText Typo="Typo.body2">– Focused on clean handovers, documentation, and cross-team collaboration in German</MudText>
-            </MudListItem>
-            </MudList>
-        </article>
-
-        <article class="work-experience work-tone-three">
-            <MudText Typo="Typo.h6" Class="mb-0">
-            <b>Grenzebach Maschinenbau GmbH Hellas</b>, Athens, September 2021 – October 2023
-        </MudText>
-        <MudText Typo="Typo.body2" Class="mud-text-secondary mb-2">
-            Robotics and industrial automation for glass cutting. English-speaking position.
-        </MudText>
-
-        <MudList T="string" Dense="true" Style="margin-top:-6px;">
-            <MudListItem T="string">
-                <MudText Typo="Typo.body1"><b>ASP.NET Web Microservices</b> <span class="mud-text-secondary">- 14 months</span></MudText>
-            </MudListItem>
-
-            <MudListItem T="string" Class="ml-6">
-                <MudText Typo="Typo.body2">– Backend tools: Entity Framework Core integration with migrations</MudText>
-            </MudListItem>
-            <MudListItem T="string" Class="ml-6">
-                <MudText Typo="Typo.body2">– Integration & unit tests (focus on reliability and regression prevention)</MudText>
-            </MudListItem>
-            <MudListItem T="string" Class="ml-6">
-                <MudText Typo="Typo.body2">– DevOps: GitHub, Docker, Jenkins CI/CD; Agile Scrum; Jira & Confluence</MudText>
-            </MudListItem>
-
-            <MudListItem T="string" Class="mt-2">
-                <MudText Typo="Typo.body1"><b>Quality Assurance Testing</b> <span class="mud-text-secondary">- 10 months</span></MudText>
-            </MudListItem>
-
-            <MudListItem T="string" Class="ml-6">
-                <MudText Typo="Typo.body2">– UI/UX testing from an end-user perspective via VMs</MudText>
-            </MudListItem>
-            <MudListItem T="string" Class="ml-6">
-                <MudText Typo="Typo.body2">– E2E tests with Selenium; structured documentation in TestRail</MudText>
-            </MudListItem>
-            </MudList>
-        </article>
-
-        <article class="work-experience work-tone-four">
-            <MudText Typo="Typo.h6" Class="mb-0">
-            <b>Metro AEBE</b>, Athens, October 2020 – August 2021
-        </MudText>
-        <MudText Typo="Typo.body2" Class="mud-text-secondary mb-2">
-            Trading and industrial company for food products. Greek-speaking position.
-        </MudText>
-
-        <MudList T="string" Dense="true" Style="margin-top:-6px;">
-            <MudListItem T="string">
-                <MudText Typo="Typo.body1"><b>Android Mobile Application</b> <span class="mud-text-secondary">- 6 months</span></MudText>
-            </MudListItem>
-
-            <MudListItem T="string" Class="ml-6">
-                <MudText Typo="Typo.body2">– .NET Xamarin Android MVVM application (processing payments via mobile devices)</MudText>
-            </MudListItem>
-            <MudListItem T="string" Class="ml-6">
-                <MudText Typo="Typo.body2">– Worked with device-focused UX and stable flows for day-to-day cashier operations</MudText>
-            </MudListItem>
-
-            <MudListItem T="string" Class="mt-2">
-                <MudText Typo="Typo.body1"><b>VB Access Application</b> <span class="mud-text-secondary">- 4 months</span></MudText>
-            </MudListItem>
-
-            <MudListItem T="string" Class="ml-6">
-                <MudText Typo="Typo.body2">– External tools: MSSQL database and IIS Microsoft Web Server (cashier app updates)</MudText>
-            </MudListItem>
-                    </MudList>
+                    @foreach (var role in job.Roles)
+                    {
+                        <section class="work-role">
+                            <h3 class="work-role-title">
+                                @role.Title
+                                @if (role.Duration is not null)
+                                {
+                                    <span class="work-role-duration">@role.Duration</span>
+                                }
+                            </h3>
+                            <ul class="work-points">
+                                @foreach (var point in role.Points)
+                                {
+                                    <li>@point</li>
+                                }
+                            </ul>
+                            <div class="work-tags">
+                                @foreach (var tag in role.Tags)
+                                {
+                                    <span class="work-tag">@tag</span>
+                                }
+                            </div>
+                        </section>
+                    }
                 </article>
-            </MudPaper>
-        </MudContainer>
+            }
+        </div>
+    </MudPaper>
+</MudContainer>
 
-@code { }
+@code {
+    private record Role(string Title, string? Duration, string[] Points, string[] Tags);
+    private record Job(string Company, string Location, string Dates, string Summary, Role[] Roles);
+
+    private readonly List<Job> _jobs = new()
+    {
+        new Job(
+            "TSG Group", "Munich", "Oct 2024 – Aug 2026",
+            "Technical development in the field of gas station solutions. German and English-speaking position.",
+            new[]
+            {
+                new Role("Backend and Web Development", null,
+                    new[]
+                    {
+                        "Gas station management web application (main project)",
+                        "APIs, validation and integration tests for transactions, accounts and vouchers",
+                        "UI: data grids, filters, sorting, dialogs, error handling and notifications",
+                        "Small, isolated adjustments to a legacy production project"
+                    },
+                    new[] { ".NET", "Blazor", "REST APIs", "Integration Tests", "DataGrids", "Python" })
+            }),
+
+        new Job(
+            "Volke Consulting Engineers", "BMW Group, Munich", "Feb 2024 – Jul 2024",
+            "Technical development in automotive engineering. German-speaking position.",
+            new[]
+            {
+                new Role("Backend and Database Development", "6 months",
+                    new[]
+                    {
+                        "Desktop frontend with remote data access",
+                        "Middleware for service orchestration and integrations",
+                        "Database scripts: queries, procedures, maintenance",
+                        "Handovers, documentation and cross-team collaboration in German"
+                    },
+                    new[] { ".NET WPF", "gRPC", "Java", "Spring Boot", "Oracle", "PL/SQL" })
+            }),
+
+        new Job(
+            "Grenzebach Maschinenbau GmbH Hellas", "Athens", "Sep 2021 – Oct 2023",
+            "Robotics and industrial automation for glass cutting. English-speaking position.",
+            new[]
+            {
+                new Role("ASP.NET Web Microservices", "14 months",
+                    new[]
+                    {
+                        "Backend tools with database migrations",
+                        "Integration and unit tests for reliability and regression prevention",
+                        "CI/CD pipelines and agile team workflow"
+                    },
+                    new[] { "ASP.NET", "EF Core", "Docker", "Jenkins", "GitHub", "Scrum", "Jira", "Confluence" }),
+                new Role("Quality Assurance Testing", "10 months",
+                    new[]
+                    {
+                        "UI/UX testing from an end-user perspective on VMs",
+                        "End-to-end test automation and structured test documentation"
+                    },
+                    new[] { "Selenium", "TestRail", "E2E Testing", "Virtual Machines" })
+            }),
+
+        new Job(
+            "Metro AEBE", "Athens", "Oct 2020 – Aug 2021",
+            "Trading and industrial company for food products. Greek-speaking position.",
+            new[]
+            {
+                new Role("Android Mobile Application", "6 months",
+                    new[]
+                    {
+                        "Mobile payment processing app for cashiers",
+                        "Device-focused UX and stable day-to-day flows"
+                    },
+                    new[] { ".NET Xamarin", "Android", "MVVM" }),
+                new Role("VB Access Application", "4 months",
+                    new[]
+                    {
+                        "Updates of the cashier application"
+                    },
+                    new[] { "VB", "Access", "MSSQL", "IIS" })
+            })
+    };
+}
