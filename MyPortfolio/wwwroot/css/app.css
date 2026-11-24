@@ -1895,3 +1895,56 @@ body {
     .work-experience { padding: 20px 18px; }
     .work-company { font-size: 1.2rem; }
 }
+
+/* ===== Home page (full width) ===== */
+.site-main:has(.home-full) {
+    width: 100%;
+    max-width: none;
+}
+
+.home-intro {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 32px;
+}
+
+.home-photo {
+    width: 96px;
+    height: 96px;
+    flex-shrink: 0;
+    object-fit: cover;
+    border: 3px solid #89aee4;
+    border-radius: 50%;
+    box-shadow: 0 8px 22px rgba(24, 44, 73, 0.25);
+}
+
+@media (max-width: 600px) {
+    .home-intro { padding: 16px; }
+    .home-photo { width: 72px; height: 72px; }
+}
+
+/* Icy blue background for the home page */
+.app-root:has(.home-full) {
+    background:
+        radial-gradient(ellipse at 15% 0%, rgba(255, 255, 255, 0.85), transparent 45%),
+        radial-gradient(ellipse at 90% 100%, rgba(150, 205, 245, 0.55), transparent 50%),
+        linear-gradient(160deg, #e9f6ff 0%, #cfeaff 45%, #b4daf7 100%);
+}
+
+/* Intro texts spread across the full width */
+.home-intro {
+    gap: 24px;
+}
+
+.home-intro .mud-typography {
+    flex: 1;
+    text-align: center;
+    color: #16385e;
+    letter-spacing: 0.02em;
+}
+
+@media (max-width: 600px) {
+    .home-intro { flex-wrap: wrap; }
+    .home-intro .mud-typography { flex: 1 1 100%; text-align: left; }
+}
