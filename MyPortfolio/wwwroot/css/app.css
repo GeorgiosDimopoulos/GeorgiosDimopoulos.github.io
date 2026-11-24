@@ -2002,3 +2002,79 @@ body {
 .life-page .life-next-steps .mud-button-root {
     min-height: 38px;
 }
+
+/* ===== Studies page: compact heights ===== */
+.studies-page.portfolio-page {
+    padding: 20px 0 8px;
+}
+
+.studies-page .mud-stack {
+    gap: 6px !important;
+}
+
+.studies-page > .mud-stack {
+    gap: 10px !important;
+}
+
+.studies-page .mud-stack-row {
+    gap: 12px !important;
+}
+
+.studies-page .mud-grid {
+    margin-top: 0;
+}
+
+.studies-page .studies-profile,
+.studies-page .studies-overview,
+.studies-page .studies-record,
+.studies-page .studies-language {
+    padding: 10px 16px !important;
+}
+
+.studies-page .studies-projects {
+    padding: 6px 12px !important;
+}
+
+.studies-page .studies-title {
+    font-size: 2rem;
+    line-height: 1.15;
+}
+
+.studies-page .studies-intro {
+    font-size: 0.9rem;
+}
+
+.studies-page .studies-avatar {
+    width: 52px;
+    height: 52px;
+}
+
+.studies-page .mud-typography-h5 {
+    font-size: 1.25rem;
+}
+
+.studies-page .studies-record .mud-typography-h6,
+.studies-page .studies-language .mud-typography-h6 {
+    font-size: 1.02rem;
+    line-height: 1.3;
+}
+
+.studies-page .mud-typography-body2 {
+    font-size: 0.85rem;
+    line-height: 1.4;
+}
+
+.studies-page .mud-chip {
+    height: 22px;
+    font-size: 0.7rem;
+}
+
+.studies-page .studies-learning-note {
+    padding: 6px 14px;
+}
+
+.studies-page .studies-next-link {
+    min-height: 38px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+}
