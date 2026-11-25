@@ -2201,3 +2201,149 @@ body {
 .studies-page .mud-grid-item > .mud-stack + .mud-stack {
     margin-top: 14px;
 }
+
+.studies-page .studies-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.studies-page .studies-list li {
+    position: relative;
+    padding: 2px 0 2px 18px;
+    color: #2f4a39;
+    font-size: 0.82rem;
+    line-height: 1.5;
+}
+
+.studies-page .studies-list li::before {
+    content: "";
+    position: absolute;
+    left: 3px;
+    top: 0.8em;
+    width: 6px;
+    height: 6px;
+    background: var(--studies-green);
+    border-radius: 50%;
+}
+
+/* Home tiles: 4 equal columns across the full page width */
+.home-tiles {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4px;
+    min-height: 0;
+}
+
+.home-tile {
+    min-width: 0;
+    min-height: 0;
+}
+
+@media (max-width: 960px) {
+    .home-tiles { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 560px) {
+    .home-tiles { grid-template-columns: 1fr; }
+}
+
+/* ===== Projects page ===== */
+.projects-page .events-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 14px;
+}
+
+.projects-page .events-grid .studies-event {
+    margin: 0;
+}
+
+.projects-page .projects-github {
+    min-height: 72px;
+    font-size: 1.3rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    text-transform: none;
+    border-radius: 14px;
+    background: linear-gradient(135deg, #24292f, #3b4651);
+    color: #fff;
+    box-shadow: 0 12px 26px rgba(36, 41, 47, 0.28);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.projects-page .projects-github:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 18px 34px rgba(36, 41, 47, 0.36);
+}
+
+.projects-page .projects-repos .studies-list {
+    column-count: 2;
+    column-gap: 32px;
+    margin-top: 6px;
+}
+
+.projects-page .projects-repos .studies-list li {
+    break-inside: avoid;
+    font-size: 0.9rem;
+}
+
+.projects-page .projects-repos a {
+    color: var(--studies-green-dark);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.projects-page .projects-repos a:hover {
+    text-decoration: underline;
+}
+
+.projects-page .repo-lang {
+    padding: 0 8px;
+    color: var(--studies-green-dark);
+    font-size: 0.72rem;
+    font-weight: 600;
+    background: #e6f4ea;
+    border: 1px solid #b9d9c4;
+    border-radius: 999px;
+}
+
+.projects-page .projects-events {
+    margin-top: 36px;
+}
+
+@media (max-width: 760px) {
+    .projects-page .projects-repos .studies-list { column-count: 1; }
+}
+
+/* Public GitHub projects card: grey-blue */
+.projects-page .projects-repos {
+    background: linear-gradient(135deg, #e3eaf3, #d3deec) !important;
+    border: 1px solid #aebfd6 !important;
+    border-left: 4px solid #5f7fa8 !important;
+    border-radius: 12px !important;
+    box-shadow: 0 8px 20px rgba(43, 60, 83, 0.1);
+}
+
+.projects-page .projects-repos .mud-typography-subtitle2 {
+    color: #2c4a73;
+}
+
+.projects-page .projects-repos .studies-list li {
+    color: #3a4f6b;
+}
+
+.projects-page .projects-repos .studies-list li::before {
+    background: #5f7fa8;
+}
+
+.projects-page .projects-repos a {
+    color: #234a7d;
+}
+
+.projects-page .repo-lang {
+    color: #2c4a73;
+    background: #c5d4e8;
+    border-color: #9db3d0;
+}
