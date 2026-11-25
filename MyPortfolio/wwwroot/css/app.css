@@ -2078,3 +2078,126 @@ body {
     padding-top: 6px;
     padding-bottom: 6px;
 }
+
+/* Studies page: full width, controlled by the side margin */
+.site-main:has(.studies-page) {
+    width: 100%;
+    max-width: none;
+}
+
+.studies-page.portfolio-page {
+    max-width: none !important;
+    margin: 0 clamp(16px, 4vw, 72px);
+    padding-left: 0;
+    padding-right: 0;
+}
+
+/* Fix horizontal scroll: container was width:100% plus side margins */
+.studies-page.portfolio-page {
+    width: auto !important;
+    box-sizing: border-box;
+}
+
+.site-main:has(.studies-page) {
+    overflow-x: clip;
+}
+
+/* ===== Studies: hackathon & summit cards ===== */
+.studies-page .studies-event {
+    border: 1px solid var(--studies-line);
+    border-left: 4px solid var(--studies-green);
+    border-radius: 10px !important;
+    background: #f7fcf8;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.studies-page .studies-event:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 22px rgba(40, 91, 61, 0.14);
+}
+
+.studies-page .event-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.studies-page .event-title {
+    color: var(--studies-ink);
+    font-size: 1.05rem;
+    font-weight: 700;
+    text-decoration: underline;
+    text-decoration-color: rgba(61, 128, 88, 0.45);
+    text-decoration-thickness: 2px;
+    text-underline-offset: 4px;
+}
+
+.studies-page .event-year {
+    flex-shrink: 0;
+    padding: 1px 10px;
+    color: var(--studies-green-dark);
+    font-size: 0.75rem;
+    font-weight: 700;
+    background: #dcefe2;
+    border-radius: 999px;
+}
+
+.studies-page .event-year:empty {
+    display: none;
+}
+
+.studies-page .event-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 4px 10px;
+    margin-top: 4px;
+    color: var(--studies-muted);
+    font-size: 0.82rem;
+    font-style: italic;
+}
+
+.studies-page .event-meta .mud-icon-root {
+    color: var(--studies-green);
+}
+
+.studies-page .event-award {
+    padding: 1px 9px;
+    color: #7a5a10;
+    font-size: 0.75rem;
+    font-style: normal;
+    font-weight: 700;
+    background: #fff1c4;
+    border: 1px solid #ecd48a;
+    border-radius: 999px;
+}
+
+.studies-page .event-text {
+    margin: 6px 0 0;
+    color: #2f4a39;
+    font-size: 0.86rem;
+    line-height: 1.5;
+    text-align: left;
+}
+
+.studies-page .event-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 8px;
+}
+
+.studies-page .event-tag {
+    padding: 2px 10px;
+    color: var(--studies-green-dark);
+    font-size: 0.72rem;
+    font-weight: 600;
+    background: #e6f4ea;
+    border: 1px solid #b9d9c4;
+    border-radius: 999px;
+}
+
+.studies-page .mud-grid-item > .mud-stack + .mud-stack {
+    margin-top: 14px;
+}
