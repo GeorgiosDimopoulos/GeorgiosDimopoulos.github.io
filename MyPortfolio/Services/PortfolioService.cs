@@ -1,10 +1,17 @@
+using System.Net.Http.Json;
 using MyPortfolio.Models;
 
 namespace MyPortfolio.Services;
 
-public class PortfolioService : IPortfolioService
+public class PortfolioService (HttpClient httpClient): IPortfolioService
 {
-    public Task<IReadOnlyList<Project>> GetProjectsAsync() => throw new NotImplementedException();
+    public async Task<IReadOnlyList<Project>> GetProjectsAsync()
+    {
+        return await httpClient.GetFromJsonAsync<List<Project>>("data/projects") ?? [];
+    }
 
-    public Task<IReadOnlyList<TechEvent>> GetTechEventsAsync(int id) => throw new NotImplementedException();
+    public async Task<IReadOnlyList<TechEvent>> GetTechEventsAsync()
+    {
+        return await httpClient.GetFromJsonAsync<List<TechEvent>>("data/events") ?? [];
+    }
 }

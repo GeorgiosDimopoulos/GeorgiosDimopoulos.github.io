@@ -5,9 +5,10 @@ public record Study(
     string University,
     string Department,
     string Location,
-    List<string> Lessons,
-    List<string> ProgrammingLanguages,
+    IReadOnlyList<string> Lessons,
+    IReadOnlyList<string> ProgrammingLanguages,
     int startYear,
-    int endtYear,
-    string? Badge = null,
-    List<Project> projects);
+    int endtYear,    
+    IReadOnlyList<string> Projects,
+    string? Badge = null,    
+    string? Description = null);

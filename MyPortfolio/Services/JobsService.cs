@@ -1,10 +1,12 @@
+using System.Net.Http.Json;
 using MyPortfolio.Models;
 
 namespace MyPortfolio.Services;
 
-public class JobsService : IJobsService
+public class JobsService(HttpClient httpClient) : IJobsService
 {
-    public Task<IReadOnlyList<Job>> GetJobsAsync() => throw new NotImplementedException();
-
-    public Task<Job> GetJobAsync(int id) => throw new NotImplementedException();
+    public async Task<IReadOnlyList<Job>> GetJobsAsync()
+    {
+        return await httpClient.GetFromJsonAsync<List<Job>>("data/jobs") ?? [];
+    }
 }

@@ -1,8 +1,12 @@
+using System.Net.Http.Json;
 using MyPortfolio.Models;
 
 namespace MyPortfolio.Services;
 
-public class LifeService : ILifeService
+public class LifeService (HttpClient http): ILifeService
 {
-    public Task<IReadOnlyList<LifeChapter>> GetLifeChaptersAsync() => throw new NotImplementedException();
+    public async Task<IReadOnlyList<LifeChapter>> GetLifeChaptersAsync()
+    {
+        return await http.GetFromJsonAsync<List<LifeChapter>>("data/life") ?? [];
+    }
 }

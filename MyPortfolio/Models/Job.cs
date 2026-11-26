@@ -14,9 +14,3 @@ public record Role(
     IReadOnlyList<string> Points,
     IReadOnlyList<string> Tags,
     int? DurationMonths = null);
-
-public record Language(
-    string Name,
-    string Certificate,
-    string Level,
-    IReadOnlyList<string> Experiences);
