@@ -159,6 +159,13 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
+.home-tile-title {
+    color: #fff;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-shadow: 0 3px 12px rgba(0, 0, 0, 0.7);
+}
+
 .app-root {
     min-height: 100vh;
     display: flex;
@@ -1943,9 +1950,9 @@ body {
 /* Icy blue background for the home page */
 .app-root:has(.home-full) {
     background:
-        radial-gradient(ellipse at 15% 0%, rgba(255, 255, 255, 0.85), transparent 45%),
-        radial-gradient(ellipse at 90% 100%, rgba(150, 205, 245, 0.55), transparent 50%),
-        linear-gradient(160deg, #e9f6ff 0%, #cfeaff 45%, #b4daf7 100%);
+        radial-gradient(ellipse at 15% 0%, rgba(255, 255, 255, 0.6), transparent 45%),
+        radial-gradient(ellipse at 90% 100%, rgba(70, 135, 200, 0.55), transparent 50%),
+        linear-gradient(160deg, #c4e2f8 0%, #9cc9ee 45%, #74acdf 100%);
 }
 
 /* Intro texts spread across the full width */
@@ -2320,9 +2327,13 @@ body {
 }
 
 .projects-page .projects-repos .studies-list {
-    column-count: 2;
-    column-gap: 32px;
+    column-count: 1;
     margin-top: 6px;
+}
+
+.projects-page .repo-desc {
+    display: block;
+    margin-top: 3px;
 }
 
 .projects-page .projects-repos .studies-list li {
