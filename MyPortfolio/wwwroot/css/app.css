@@ -1902,6 +1902,13 @@ body {
     max-width: none;
 }
 
+.home-full {
+    padding: 0;
+    height: calc(100vh - 64px);
+    display: flex;
+    flex-direction: column;
+}
+
 .home-intro {
     display: flex;
     align-items: center;
@@ -1917,6 +1924,14 @@ body {
     border: 3px solid #89aee4;
     border-radius: 50%;
     box-shadow: 0 8px 22px rgba(24, 44, 73, 0.25);
+}
+
+.home-details {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    gap: 24px;
+    min-width: 0;
 }
 
 @media (max-width: 600px) {
@@ -1945,8 +1960,19 @@ body {
 }
 
 @media (max-width: 600px) {
-    .home-intro { flex-wrap: wrap; }
-    .home-intro .mud-typography { flex: 1 1 100%; text-align: left; }
+    .home-intro { gap: 16px; }
+    .home-details {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+    }
+
+    .home-intro .mud-typography {
+        flex: none;
+        font-size: 1rem;
+        text-align: left;
+        white-space: nowrap;
+    }
 }
 
 /* ===== Life page: compact so all chapters fit on one screen ===== */
@@ -2246,7 +2272,20 @@ body {
 }
 
 @media (max-width: 560px) {
-    .home-tiles { grid-template-columns: 1fr; }
+    .home-full {
+        height: auto;
+        min-height: calc(100vh - 64px);
+    }
+
+    .home-tiles {
+        flex: 0 0 auto;
+        grid-template-columns: 1fr;
+        grid-auto-rows: minmax(160px, auto);
+        gap: 12px;
+        padding: 0 16px 16px;
+    }
+
+    .home-tile { min-height: 160px; }
 }
 
 /* ===== Projects page ===== */

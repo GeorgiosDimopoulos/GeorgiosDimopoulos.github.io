@@ -4,13 +4,15 @@
 @inherits LayoutComponentBase
 @inject NavigationManager Nav
 
-<MudContainer MaxWidth="MaxWidth.False" Class="home-full" Style="padding:0;height:calc(100vh - 64px); display:flex; flex-direction:column">
+<MudContainer MaxWidth="MaxWidth.False" Class="home-full">
     <div class="home-intro">
         <MudImage Src="images/me.jpg" Fallback="images/profile-placeholder.svg"
                   Alt="Georgios Dimopoulos" Class="home-photo" ObjectFit="ObjectFit.Cover" />
-        <MudText Typo="Typo.h6" Class="font-semibold">Software developer</MudText>
-        <MudText Typo="Typo.h6" Class="font-semibold">33 years old</MudText>
-        <MudText Typo="Typo.h6" Class="font-semibold">Munich, Germany</MudText>
+        <div class="home-details">
+            <MudText Typo="Typo.h6" Class="font-semibold">Software developer</MudText>
+            <MudText Typo="Typo.h6" Class="font-semibold">33 years old</MudText>
+            <MudText Typo="Typo.h6" Class="font-semibold">Munich, Germany</MudText>
+        </div>
     </div>
     <div class="home-tiles">
         <div class="home-tile">
