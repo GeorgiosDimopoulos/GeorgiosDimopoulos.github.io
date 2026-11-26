@@ -5,7 +5,7 @@ namespace MyPortfolio.Services;
 public interface IPortfolioService
 {
     Task<IReadOnlyList<Project>> GetProjectsAsync();
-    Task<IReadOnlyList<TechEvent>> GetTechEventsAsync();
+    Task<IReadOnlyList<TechEvent>> GetTechEventsAsync(int id);
     // Task<Project> GetProjectByIdAsync();
     // Task<bool> CreateProject(Project project);
     // Task<bool> DeleteProject(int id);

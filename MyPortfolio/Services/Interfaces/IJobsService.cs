@@ -5,4 +5,5 @@ namespace MyPortfolio.Services;
 public interface IJobsService
 {
     Task<IReadOnlyList<Job>> GetJobsAsync();
+    Task<Job> GetJobAsync(int id);
 }
