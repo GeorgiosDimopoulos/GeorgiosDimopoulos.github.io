@@ -1902,7 +1902,8 @@ body {
     max-width: none;
 }
 
-.home-full {
+/* two classes, so it wins over MudBlazor's own .mud-container rules */
+.mud-container.home-full {
     padding: 0;
     height: calc(100vh - 64px);
     display: flex;
@@ -2263,6 +2264,7 @@ body {
 }
 
 .home-tile {
+    display: flex;
     min-width: 0;
     min-height: 0;
 }
@@ -2272,7 +2274,7 @@ body {
 }
 
 @media (max-width: 560px) {
-    .home-full {
+    .mud-container.home-full {
         height: auto;
         min-height: calc(100vh - 64px);
     }
