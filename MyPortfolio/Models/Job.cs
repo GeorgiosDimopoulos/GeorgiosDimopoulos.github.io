@@ -2,11 +2,10 @@ namespace MyPortfolio.Models;
 
 public record Job(
     string Company,
-    string RepoUrl,
-    string Tech,
+    string Location,
+    string Summary,
     DateOnly StartDate,
     DateOnly? EndDate,
-    IReadOnlyList<Language> Languages,
     IReadOnlyList<Role> Positions);
 
 public record Role(

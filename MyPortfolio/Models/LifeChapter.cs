@@ -2,7 +2,8 @@ namespace MyPortfolio.Models;
 
 public record LifeChapter(
     string Title,
+    string Country,
     string Duration,
-    string? Place,
     string Icon,
+    string? Place = null,
     string? Description = null);

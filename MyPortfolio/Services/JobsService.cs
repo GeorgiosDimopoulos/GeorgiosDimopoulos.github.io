@@ -3,10 +3,8 @@ using MyPortfolio.Models;
 
 namespace MyPortfolio.Services;
 
-public class JobsService(HttpClient httpClient) : IJobsService
+public class JobsService(HttpClient http) : IJobsService
 {
-    public async Task<IReadOnlyList<Job>> GetJobsAsync()
-    {
-        return await httpClient.GetFromJsonAsync<List<Job>>("data/jobs") ?? [];
-    }
+    public async Task<IReadOnlyList<Job>> GetJobsAsync() =>
+        await http.GetFromJsonAsync<List<Job>>("data/jobs.json") ?? [];
 }

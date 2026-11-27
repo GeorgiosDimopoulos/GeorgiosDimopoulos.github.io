@@ -3,10 +3,8 @@ using MyPortfolio.Models;
 
 namespace MyPortfolio.Services;
 
-public class LifeService (HttpClient http): ILifeService
+public class LifeService(HttpClient http) : ILifeService
 {
-    public async Task<IReadOnlyList<LifeChapter>> GetLifeChaptersAsync()
-    {
-        return await http.GetFromJsonAsync<List<LifeChapter>>("data/life") ?? [];
-    }
+    public async Task<IReadOnlyList<LifeChapter>> GetLifeChaptersAsync() =>
+        await http.GetFromJsonAsync<List<LifeChapter>>("data/life.json") ?? [];
 }
