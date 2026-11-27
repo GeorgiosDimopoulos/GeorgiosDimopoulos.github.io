@@ -1,0 +1,133 @@
+[
+  {
+    "company": "TSG Group",
+    "location": "Munich",
+    "summary": "Technical development in the field of gas station solutions. German and English-speaking position.",
+    "startDate": "2024-10-01",
+    "endDate": "2026-08-31",
+    "positions": [
+      {
+        "title": "Backend and Web Development",
+        "durationMonths": 22,
+        "points": [
+          "Gas station management web application (main project)",
+          "APIs, validation and integration tests for transactions, accounts and vouchers",
+          "UI: data grids, filters, sorting, dialogs, error handling and notifications",
+          "Small, isolated adjustments to a legacy production project"
+        ],
+        "tags": [
+          ".NET",
+          "Blazor",
+          "REST APIs",
+          "Integration Tests",
+          "DataGrids",
+          "Python"
+        ]
+      }
+    ]
+  },
+  {
+    "company": "Volke Consulting Engineers",
+    "location": "BMW Group, Munich",
+    "summary": "Technical development in automotive engineering. German-speaking position.",
+    "startDate": "2024-02-01",
+    "endDate": "2024-07-31",
+    "positions": [
+      {
+        "title": "Backend and Database Development",
+        "durationMonths": 6,
+        "points": [
+          "Desktop frontend with remote data access",
+          "Middleware for service orchestration and integrations",
+          "Database scripts: queries, procedures, maintenance",
+          "Handovers, documentation and cross-team collaboration in German"
+        ],
+        "tags": [
+          ".NET WPF",
+          "gRPC",
+          "Java",
+          "Spring Boot",
+          "Oracle",
+          "PL/SQL"
+        ]
+      }
+    ]
+  },
+  {
+    "company": "Grenzebach Maschinenbau GmbH Hellas",
+    "location": "Athens",
+    "summary": "Robotics and industrial automation for glass cutting. English-speaking position.",
+    "startDate": "2021-09-01",
+    "endDate": "2023-10-31",
+    "positions": [
+      {
+        "title": "ASP.NET Web Microservices",
+        "durationMonths": 14,
+        "points": [
+          "Backend tools with database migrations",
+          "Integration and unit tests for reliability and regression prevention",
+          "CI/CD pipelines and agile team workflow"
+        ],
+        "tags": [
+          "ASP.NET",
+          "EF Core",
+          "Docker",
+          "Jenkins",
+          "GitHub",
+          "Scrum",
+          "Jira",
+          "Confluence"
+        ]
+      },
+      {
+        "title": "Quality Assurance Testing",
+        "durationMonths": 10,
+        "points": [
+          "UI/UX testing from an end-user perspective on VMs",
+          "End-to-end test automation and structured test documentation"
+        ],
+        "tags": [
+          "Selenium",
+          "TestRail",
+          "E2E Testing",
+          "Virtual Machines"
+        ]
+      }
+    ]
+  },
+  {
+    "company": "Metro AEBE",
+    "location": "Athens",
+    "summary": "Trading and industrial company for food products. Greek-speaking position.",
+    "startDate": "2020-10-01",
+    "endDate": "2021-08-31",
+    "positions": [
+      {
+        "title": "Android Mobile Application",
+        "durationMonths": 6,
+        "points": [
+          "Mobile payment processing app for cashiers",
+          "Device-focused UX and stable day-to-day flows"
+        ],
+        "tags": [
+          ".NET Xamarin",
+          "Android",
+          "MVVM"
+        ]
+      },
+      {
+        "title": "VB Access Application",
+        "durationMonths": 4,
+        "points": [
+          "Updates of the cashier application"
+        ],
+        "tags": [
+          "VB",
+          "Access",
+          "MSSQL",
+          "IIS"
+        ]
+      }
+    ]
+  }
+]

@@ -1,0 +1,51 @@
+[
+  {
+    "title": "Orderify",
+    "years": "2015–2019",
+    "location": "Athens",
+    "description": "Team project for food and drink retailers. My part: the owner's mobile and desktop applications, where the user manages the shop.",
+    "tags": [
+      "Xamarin Forms",
+      "WPF",
+      ".NET"
+    ]
+  },
+  {
+    "title": "StartHack Hackathon",
+    "years": "2017",
+    "location": "Saint Gallen",
+    "award": "2nd place · Game Development Challenge by Logitech",
+    "description": "Team project: a game deployed on Unity and .NET platforms, where a driver had to avoid bombs on a custom map.",
+    "tags": [
+      "Unity",
+      ".NET"
+    ]
+  },
+  {
+    "title": "Orderify Plus",
+    "years": "2017",
+    "location": "Web Summit Lisbon",
+    "award": "Top 500 Start-Ups",
+    "description": "Team project offering part-time job opportunities to students. My role: the UI of both applications, for owners and candidate employees.",
+    "tags": [
+      "Xamarin Android",
+      ".NET"
+    ]
+  },
+  {
+    "title": "Emergy",
+    "years": "2017",
+    "location": "Athens · Crowdpolicy's Hackathon",
+    "description": "Platform where a citizen sends a single GPS signal in case of emergency. My part: the platform for the services (Police, Fire Service etc.).",
+    "tags": [
+      "WPF",
+      ".NET"
+    ]
+  },
+  {
+    "title": "Microsoft Candidate Student Partner",
+    "location": "Student programme",
+    "description": "Presentations and small projects together with other candidates.",
+    "tags": []
+  }
+]

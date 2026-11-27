@@ -1,0 +1,82 @@
+[
+  {
+    "title": "Bachelor & Master in Software Engineering",
+    "department": "Informatics",
+    "university": "University of the Aegean",
+    "location": "Samos, Greece",
+    "startYear": 2014,
+    "endYear": 2019,
+    "badge": "Degree",
+    "description": "Studies in software engineering, alongside practical team projects and events with the wider technology community.",
+    "lessons": [
+      "Discrete Mathematics",
+      "Computer Science & Communications",
+      "Logic Design",
+      "Calculus",
+      "Physics I",
+      "Physics II",
+      "Databases I",
+      "Databases",
+      "Databases II",
+      "Linear Algebra",
+      "Circuit Theory",
+      "Programming Methodologies & Languages",
+      "Probability & Statistics",
+      "Java Programming",
+      "Computer Architecture – Assembly",
+      "IT Project Management",
+      "Data Structures",
+      "Signals & Systems",
+      "Stochastic Analysis",
+      "Sets & Numbers",
+      "Algorithms & Complexity",
+      "Analysis & Design",
+      "Differential Equations",
+      "Computer Communications",
+      "Advanced Topics in Programming Languages",
+      "Computer Networks",
+      "Theory of Computation",
+      "Business Operations",
+      "Software Technology",
+      "Telecommunications",
+      "Security",
+      "Systems Administration",
+      "Distributed Systems",
+      "Legal Framework",
+      "Internet Programming",
+      "Artificial Intelligence"
+    ],
+    "programmingLanguages": [
+      "Java",
+      "C#",
+      "C++",
+      "HTML",
+      "CSS",
+      "Xamarin Android",
+      "Assembly",
+      "C"
+    ],
+    "projects": [
+      "Scrabble",
+      "Calculator",
+      "Currency Converter",
+      "Bingo Game"
+    ]
+  },
+  {
+    "title": "Informatics",
+    "university": "University of Stuttgart · Vaihingen",
+    "location": "Stuttgart, Germany",
+    "startYear": 2013,
+    "endYear": 2014,
+    "lessons": [
+      "Programmierung",
+      "Physik 1",
+      "ElektroTechnische GL",
+      "DatenStrukturen und Algorithmen",
+      "Höhere Mathematik 1"
+    ],
+    "programmingLanguages": [],
+    "projects": []
+  }
+]

@@ -1,0 +1,39 @@
+[
+  {
+    "title": "Now in Munich",
+    "country": "Germany",
+    "duration": "3 years",
+    "icon": "city",
+    "place": "Munich, Germany · Software developer"
+  },
+  {
+    "title": "Work in Athens",
+    "country": "Greece",
+    "duration": "3 years",
+    "icon": "work",
+    "place": "Athens, Greece",
+    "description": "2 jobs as junior developer"
+  },
+  {
+    "title": "Studies in Samos",
+    "country": "Greece",
+    "duration": "5 years",
+    "icon": "school",
+    "place": "University of the Aegean · Samos, Greece",
+    "description": "ICSC, Informatics, BSc and MSc"
+  },
+  {
+    "title": "Youth in Stuttgart",
+    "country": "Germany",
+    "duration": "3 years",
+    "icon": "flight",
+    "description": "1.5 years of German lessons · 1 year of Informatics studies"
+  },
+  {
+    "title": "Childhood in Athens",
+    "country": "Greece",
+    "duration": "Until age 18",
+    "icon": "child",
+    "place": "Athens, Greece"
+  }
+]

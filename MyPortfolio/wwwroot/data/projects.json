@@ -1,0 +1,50 @@
+[
+  {
+    "name": "Stelexaras Camps App",
+    "repoUrl": "https://github.com/GeorgiosDimopoulos/StelexarasApp",
+    "tech": ".NET C#",
+    "description": "A management system for summer camps. It helps camp staff (HR and management team leaders) track children organisation, staff, camp structure (eg tents, communities) in real time"
+  },
+  {
+    "name": "Spotify Songs Tracker",
+    "repoUrl": "https://github.com/GeorgiosDimopoulos/SpotifySongsTracker",
+    "tech": "ASP.NET C#",
+    "description": "SpotifySongsTracker helps users track their favorite Spotify playlists and songs. The app uses Spotify's OAuth for authentication, and users must provide their own credentials."
+  },
+  {
+    "name": "UEFA Ranking App",
+    "repoUrl": "https://github.com/GeorgiosDimopoulos/UEFA-Ranking-App",
+    "tech": "Blazor C#",
+    "description": "FootballRankings tracks rankings based on European UEFA club matches across the 3 main competitions. This project is for non-commercial use!"
+  },
+  {
+    "name": "Greek Müncheners",
+    "repoUrl": "https://github.com/GeorgiosDimopoulos/GreekMuencheners",
+    "tech": "HTML - CSS",
+    "description": "A website for the Greek community in Munich, built with Blazor. It has a calendar with upcoming events, a list of the community's WhatsApp groups, Contact form and history of past events"
+  },
+  {
+    "name": "VolleyBall Notie",
+    "repoUrl": "https://github.com/GeorgiosDimopoulos/VolleyNotie",
+    "tech": "Python",
+    "description": "A python scraper, that checks a public html content of a volleyball matches website and notifies us via email for new matches"
+  },
+  {
+    "name": "Emergy",
+    "repoUrl": "https://github.com/GeorgiosDimopoulos/Emergy",
+    "tech": "WPF and Xamarin C#",
+    "description": "SOS application (Xamarin Forms) for users who get lost, with a municipal-service application (WPF) to find them"
+  },
+  {
+    "name": "Thesis",
+    "repoUrl": "https://github.com/GeorgiosDimopoulos/Thesis",
+    "tech": "Jupyter Notebook and Python",
+    "description": "University thesis: In this research, we analyze and present the application of the Universal Language Model Fine Tuning technique (ULMFiT) in some text categorization applications, developed by NLP's fast.ai"
+  },
+  {
+    "name": "MyEncryptedMessaging",
+    "repoUrl": "https://github.com/GeorgiosDimopoulos/MyEncryptedMessaging",
+    "tech": "Console C#",
+    "description": "Cloud Security - Encrypted messaging simple attempt. We decode and encode the message with a real timespan trick"
+  }
+]

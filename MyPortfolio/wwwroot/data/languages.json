@@ -1,0 +1,20 @@
+[
+  {
+    "name": "German",
+    "certificate": "TestDaF",
+    "level": "C1",
+    "experiences": [
+      "Spoken for 6 months at Volke Consulting GmbH",
+      "Spoken for 2 years at TSG Solutions Group"
+    ]
+  },
+  {
+    "name": "English",
+    "certificate": "Cambridge FCE",
+    "level": "B2",
+    "experiences": [
+      "Spoken fluently for 2 years at Grenzebach GmbH",
+      "Spoken fluently for 2 years at TSG Solutions Group"
+    ]
+  }
+]
