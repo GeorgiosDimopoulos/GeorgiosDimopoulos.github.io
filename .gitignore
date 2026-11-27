@@ -1,33 +1,11 @@
-﻿################################################################################
-# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
-################################################################################
-
-/.vs/MyPortfolio
-/MyPortfolio/.vs
-/MyPortfolio/obj/Debug/net8.0
-/MyPortfolio/obj/Release/net8.0
-/MyPortfolio/obj/MyPortfolio.csproj.nuget.dgspec.json
-/MyPortfolio/obj/MyPortfolio.csproj.nuget.g.props
-/MyPortfolio/obj/MyPortfolio.csproj.nuget.g.targets
-/MyPortfolio/obj/project.assets.json
-/MyPortfolio/obj/project.nuget.cache
-*.user
-/MyPortfolio/bin/Debug/net8.0
-/.vs/CopilotSnapshots/2C79E45B2662B6499617760B2B67C931
-/.vs/ProjectEvaluation
-/MyPortfolio/bin/Release/net8.0
-/MyPortfolio/publish/publish/emcc-props.json
-/MyPortfolio/publish/publish/MyPortfolio.staticwebassets.endpoints.json
-/MyPortfolio/publish/publish/wwwroot/_framework/blazor.boot.json
-/MyPortfolio/publish/wwwroot/css
-/MyPortfolio/publish/wwwroot/_framework
-/MyPortfolio/bin/Debug/net10.0
-/MyPortfolio/obj/Debug/net10.0
-/.vs/CopilotSnapshots/6C9185DEB509864BAEA14B68F74775BC
-
-# Build output and local copies of the published site
+# Build output
 bin/
 obj/
 publish/
+
+# IDE and user files
 .vs/
+*.user
+
+# Local copy of the published site
 /GeorgiosDimopoulos.github.io/

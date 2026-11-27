@@ -3,7 +3,7 @@
     "name": "Stelexaras Camps App",
     "repoUrl": "https://github.com/GeorgiosDimopoulos/StelexarasApp",
     "tech": ".NET C#",
-    "description": "A management system for summer camps. It helps camp staff (HR and management team leaders) track children organisation, staff, camp structure (eg tents, communities) in real time"
+    "description": "A management system for summer camps. It helps camp staff (HR and management team leaders) track children's organisation, staff and camp structure (e.g. tents, communities) in real time"
   },
   {
     "name": "Spotify Songs Tracker",
@@ -21,13 +21,13 @@
     "name": "Greek Müncheners",
     "repoUrl": "https://github.com/GeorgiosDimopoulos/GreekMuencheners",
     "tech": "HTML - CSS",
-    "description": "A website for the Greek community in Munich, built with Blazor. It has a calendar with upcoming events, a list of the community's WhatsApp groups, Contact form and history of past events"
+    "description": "A website for the Greek community in Munich, built with Blazor. It has a calendar with upcoming events, a list of the community's WhatsApp groups, a contact form and a history of past events"
   },
   {
     "name": "VolleyBall Notie",
     "repoUrl": "https://github.com/GeorgiosDimopoulos/VolleyNotie",
     "tech": "Python",
-    "description": "A python scraper, that checks a public html content of a volleyball matches website and notifies us via email for new matches"
+    "description": "A Python scraper that checks the public HTML content of a volleyball match website and notifies us via email about new matches"
   },
   {
     "name": "Emergy",
@@ -45,6 +45,6 @@
     "name": "MyEncryptedMessaging",
     "repoUrl": "https://github.com/GeorgiosDimopoulos/MyEncryptedMessaging",
     "tech": "Console C#",
-    "description": "Cloud Security - Encrypted messaging simple attempt. We decode and encode the message with a real timespan trick"
+    "description": "Cloud Security - A simple attempt at encrypted messaging. We encode and decode the message with a real timespan trick"
   }
 ]

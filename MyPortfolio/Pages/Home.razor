@@ -1,12 +1,11 @@
 ﻿@page "/"
 
 @using MudBlazor
-@inherits LayoutComponentBase
 @inject NavigationManager Nav
 
 <MudContainer MaxWidth="MaxWidth.False" Class="home-full">
     <div class="home-intro">
-        <MudImage Src="images/me.jpg" Fallback="images/profile-placeholder.svg"
+        <MudImage Src="images/me.jpg"
                   Alt="Georgios Dimopoulos" Class="home-photo" ObjectFit="ObjectFit.Cover" />
         <div class="home-details">
             <MudText Typo="Typo.h6" Class="font-semibold">Software developer</MudText>

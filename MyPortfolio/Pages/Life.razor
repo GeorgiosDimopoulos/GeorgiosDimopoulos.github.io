@@ -25,13 +25,12 @@
         }
         else
         {
-            var number = _chapters.Count;
-
             <MudTimeline Class="life-timeline">
-                @foreach (var chapter in _chapters)
+                @for (var i = 0; i < _chapters.Count; i++)
                 {
-                    var isCurrent = number == _chapters.Count;
-                    var label = isCurrent ? "CURRENT CHAPTER" : $"CHAPTER {number:00}";
+                    var chapter = _chapters[i];
+                    var isCurrent = i == 0;
+                    var label = isCurrent ? "CURRENT CHAPTER" : $"CHAPTER {_chapters.Count - i:00}";
 
                     <MudTimelineItem Icon="@GetIcon(chapter.Icon)" Color="Color.Warning">
                         <MudPaper Elevation="0"
@@ -56,8 +55,6 @@
                             </MudStack>
                         </MudPaper>
                     </MudTimelineItem>
-
-                    number--;
                 }
             </MudTimeline>
         }
