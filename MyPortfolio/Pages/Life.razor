@@ -1,90 +1,107 @@
 ﻿@page "/life"
+@using System.Text.Json
 @using MudBlazor
+@using MyPortfolio.Models
+@using MyPortfolio.Services
+
+@inject ILifeService LifeService
 
 <PageTitle>Life | Georgios Dimopoulos</PageTitle>
 
 <MudContainer MaxWidth="MaxWidth.Large" Class="portfolio-page life-page">
     <MudStack Spacing="2">
-        <MudStack Direction="Row" AlignItems="AlignItems.Center" Justify="Justify.SpaceBetween" Class="life-section-heading">
+        <MudStack Row="true" AlignItems="AlignItems.Center" Justify="Justify.SpaceBetween"
+                  Class="life-section-heading">
             <MudText Typo="Typo.h5">Places &amp; milestones</MudText>
             <MudText Typo="Typo.overline">ATHENS → STUTTGART → SAMOS → ATHENS → MUNICH</MudText>
         </MudStack>
+        @if (_loadFailed)
+        {
+            <MudAlert Severity="Severity.Error">Could not load this section.</MudAlert>
+        }
+        else if (_chapters is null)
+        {
+            <MudProgressCircular Indeterminate="true" />
+        }
+        else
+        {
+            var number = _chapters.Count;
 
-        <MudTimeline Dense="true" Class="life-timeline">            
-            <MudTimelineItem Icon="@Icons.Material.Filled.LocationCity" Color="Color.Warning">
-                <MudPaper Elevation="0" Class="life-chapter-card life-chapter-current pa-4">
-                    <MudStack Spacing="1">
-                        <MudStack Direction="Row" AlignItems="AlignItems.Center" Justify="Justify.SpaceBetween">
-                            <MudChip T="string" Size="Size.Small" Variant="Variant.Filled" Color="Color.Warning">CURRENT CHAPTER · GERMANY</MudChip>
-                            <MudText Typo="Typo.caption">3 years</MudText>
-                        </MudStack>
-                        <MudText Typo="Typo.h6">Now in Munich</MudText>
-                        <MudText Typo="Typo.body2">Munich, Germany · Software developer</MudText>
-                    </MudStack>
-                </MudPaper>
-            </MudTimelineItem>
-            <MudTimelineItem Icon="@Icons.Material.Filled.Work" Color="Color.Warning">
-                <MudPaper Elevation="0" Class="life-chapter-card pa-4">
-                    <MudStack Spacing="1">
-                        <MudStack Direction="Row" AlignItems="AlignItems.Center" Justify="Justify.SpaceBetween">
-                            <MudChip T="string" Size="Size.Small" Variant="Variant.Outlined" Color="Color.Warning">CHAPTER 04 · GREECE</MudChip>
-                            <MudText Typo="Typo.caption">3 years</MudText>
-                        </MudStack>
-                        <MudText Typo="Typo.h6">Work in Athens</MudText>
-                        <MudText Typo="Typo.body2">Athens, Greece</MudText>
-                        <MudText Typo="Typo.body2">2 jobs as junior developer</MudText>
-                    </MudStack>
-                </MudPaper>
-            </MudTimelineItem>
-            <MudTimelineItem Icon="@Icons.Material.Filled.School" Color="Color.Warning">
-                <MudPaper Elevation="0" Class="life-chapter-card pa-4">
-                    <MudStack Spacing="1">
-                        <MudStack Direction="Row" AlignItems="AlignItems.Center" Justify="Justify.SpaceBetween">
-                            <MudChip T="string" Size="Size.Small" Variant="Variant.Outlined" Color="Color.Warning">CHAPTER 03 · GREECE</MudChip>
-                            <MudText Typo="Typo.caption">5 years</MudText>
-                        </MudStack>
-                        <MudText Typo="Typo.h6">Studies in Samos</MudText>
-                        <MudText Typo="Typo.body2">University of the Aegean · Samos, Greece</MudText>
-                        <MudText Typo="Typo.body2">ICSC, Informatics, BSc and MSc</MudText>
-                    </MudStack>
-                </MudPaper>
-            </MudTimelineItem>
-        <MudTimelineItem Icon="@Icons.Material.Filled.Flight" Color="Color.Warning">
-            <MudPaper Elevation="0" Class="life-chapter-card pa-4">
-                <MudStack Spacing="1">
-                    <MudStack Direction="Row" AlignItems="AlignItems.Center" Justify="Justify.SpaceBetween">
-                        <MudChip T="string" Size="Size.Small" Variant="Variant.Outlined" Color="Color.Warning">CHAPTER 02 · GERMANY</MudChip>
-                        <MudText Typo="Typo.caption">3 years</MudText>
-                    </MudStack>
-                    <MudText Typo="Typo.h6">Youth in Stuttgart</MudText>
-                    <MudText Typo="Typo.body2">1.5 years of German lessons · 1 year of Informatics studies</MudText>
-                </MudStack>
-            </MudPaper>
-        </MudTimelineItem>
-        <MudTimelineItem Icon="@Icons.Material.Filled.ChildCare" Color="Color.Warning">
-            <MudPaper Elevation="0" Class="life-chapter-card pa-4">
-                <MudStack Spacing="1">
-                    <MudStack Direction="Row" AlignItems="AlignItems.Center" Justify="Justify.SpaceBetween">
-                        <MudChip T="string" Size="Size.Small" Variant="Variant.Outlined" Color="Color.Warning">CHAPTER 01 · GREECE</MudChip>
-                        <MudText Typo="Typo.caption">Until age 18</MudText>
-                    </MudStack>
-                    <MudText Typo="Typo.h6">Childhood in Athens</MudText>
-                    <MudText Typo="Typo.body2">Athens, Greece</MudText>
-                </MudStack>
-            </MudPaper>
-        </MudTimelineItem>
-        </MudTimeline>
+            <MudTimeline Class="life-timeline">
+                @foreach (var chapter in _chapters)
+                {
+                    var isCurrent = number == _chapters.Count;
+                    var label = isCurrent ? "CURRENT CHAPTER" : $"CHAPTER {number:00}";
+
+                    <MudTimelineItem Icon="@GetIcon(chapter.Icon)" Color="Color.Warning">
+                        <MudPaper Elevation="0"
+                                  Class="@(isCurrent ? "life-chapter-card life-chapter-current pa-4" : "life-chapter-card pa-4")">
+                            <MudStack Spacing="1">
+                                <MudStack Row="true" AlignItems="AlignItems.Center" Justify="Justify.SpaceBetween">
+                                    <MudChip T="string" Size="Size.Small" Color="Color.Warning"
+                                             Variant="@(isCurrent ? Variant.Filled : Variant.Outlined)">
+                                        @label · @chapter.Country.ToUpperInvariant()
+                                    </MudChip>
+                                    <MudText Typo="Typo.caption">@chapter.Duration</MudText>
+                                </MudStack>
+                                <MudText Typo="Typo.h6">@chapter.Title</MudText>
+                                @if (chapter.Place is not null)
+                                {
+                                    <MudText Typo="Typo.body2">@chapter.Place</MudText>
+                                }
+                                @if (chapter.Description is not null)
+                                {
+                                    <MudText Typo="Typo.body2">@chapter.Description</MudText>
+                                }
+                            </MudStack>
+                        </MudPaper>
+                    </MudTimelineItem>
+
+                    number--;
+                }
+            </MudTimeline>
+        }
         <MudGrid Spacing="2" Class="life-next-steps">
             <MudItem xs="12" sm="6">
-                <MudButton Href="/studies" Variant="Variant.Outlined" Color="Color.Warning" EndIcon="@Icons.Material.Filled.ArrowForward" FullWidth="true">
+                <MudButton Href="/studies" Variant="Variant.Outlined" Color="Color.Warning"
+                           EndIcon="@Icons.Material.Filled.ArrowForward" FullWidth="true">
                     Explore my studies
                 </MudButton>
             </MudItem>
             <MudItem xs="12" sm="6">
-                <MudButton Href="/work" Variant="Variant.Outlined" Color="Color.Warning" EndIcon="@Icons.Material.Filled.ArrowForward" FullWidth="true">
+                <MudButton Href="/work" Variant="Variant.Outlined" Color="Color.Warning"
+                           EndIcon="@Icons.Material.Filled.ArrowForward" FullWidth="true">
                     Explore my work
                 </MudButton>
             </MudItem>
         </MudGrid>
     </MudStack>
 </MudContainer>
+
+@code
+{
+    private bool _loadFailed;
+    private IReadOnlyList<LifeChapter>? _chapters;
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            _chapters = await LifeService.GetLifeChaptersAsync();
+        }
+        catch (Exception ex) when (ex is HttpRequestException or JsonException)
+        {
+            _loadFailed = true;
+        }
+    }
+
+    private static string GetIcon(string key) => key switch
+    {
+        "city" => Icons.Material.Filled.LocationCity,
+        "work" => Icons.Material.Filled.Work,
+        "school" => Icons.Material.Filled.School,
+        "flight" => Icons.Material.Filled.Flight,
+        "child" => Icons.Material.Filled.ChildCare,
+        _ => Icons.Material.Filled.Place
+    };
+}

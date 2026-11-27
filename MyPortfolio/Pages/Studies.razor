@@ -1,12 +1,17 @@
 ﻿@page "/studies"
+@using System.Text.Json
 @using MudBlazor
+@using MyPortfolio.Models
+@using MyPortfolio.Services
+
+@inject IStudiesService StudiesService
 
 <PageTitle>Studies | Georgios Dimopoulos</PageTitle>
 
 <MudContainer MaxWidth="MaxWidth.Large" Class="portfolio-page studies-page">
     <MudStack Spacing="3">
         <MudPaper Elevation="0" Class="studies-profile pa-5">
-            <MudStack Direction="Row" AlignItems="AlignItems.Center" Spacing="3">
+            <MudStack Row="true" AlignItems="AlignItems.Center" Spacing="3">
                 <MudAvatar Color="Color.Success" Variant="Variant.Filled" Size="Size.Large" Class="studies-avatar">
                     <MudText Typo="Typo.h5">GD</MudText>
                 </MudAvatar>
@@ -47,120 +52,144 @@
             </MudGrid>
         </MudPaper>
 
-        <MudGrid Spacing="3">
-            <MudItem xs="12" md="8">
-                <MudStack Spacing="2">
-                    <MudStack Direction="Row" AlignItems="AlignItems.Center" Justify="Justify.SpaceBetween">
-                        <MudText Typo="Typo.h5">Education</MudText>
-                        <MudChip T="string" Size="Size.Small" Variant="Variant.Outlined" Color="Color.Success">Studies &amp; projects</MudChip>
-                    </MudStack>
+        @if (_loadFailed)
+        {
+            <MudAlert Severity="Severity.Error">Could not load this section.</MudAlert>
+        }
+        else if (_studies is null || _languages is null)
+        {
+            <MudProgressCircular Indeterminate="true" />
+        }
+        else
+        {
+            <MudGrid Spacing="3">
+                <MudItem xs="12" md="8">
+                    <MudStack Spacing="2">
+                        <MudStack Row="true" AlignItems="AlignItems.Center" Justify="Justify.SpaceBetween">
+                            <MudText Typo="Typo.h5">Education</MudText>
+                            <MudChip T="string" Size="Size.Small" Variant="Variant.Outlined" Color="Color.Success">Studies &amp; projects</MudChip>
+                        </MudStack>
 
-                    <MudPaper Elevation="0" Class="studies-record studies-record-featured pa-4">
-                        <MudStack Spacing="2">
-                            <MudStack Direction="Row" AlignItems="AlignItems.Center" Justify="Justify.SpaceBetween">
-                                <MudChip T="string" Size="Size.Small" Variant="Variant.Filled" Color="Color.Success">Degree</MudChip>
-                                <MudText Typo="Typo.caption">2014 — 2019</MudText>
-                            </MudStack>
-                            <MudStack Direction="Row" AlignItems="AlignItems.Start" Spacing="2">
-                                <MudIcon Icon="@Icons.Material.Filled.School" Color="Color.Success" Size="Size.Large" />
-                                <MudStack Spacing="1">
-                                    <MudText Typo="Typo.h6">Bachelor &amp; Master in Software Engineering</MudText>
-                                    <MudText Typo="Typo.body2" Class="studies-secondary">Informatics · University of the Aegean</MudText>
-                                </MudStack>
-                            </MudStack>
-                            <MudText Typo="Typo.body2">Studies in software engineering, alongside practical team projects and events with the wider technology community.</MudText>
-                            <MudPaper Elevation="0" Class="studies-projects pa-2">
-                                <MudStack Spacing="1">
-                                    <MudText Typo="Typo.subtitle2" Class="studies-eyebrow">Tools &amp; Programing languages</MudText>
-                                    <ul class="studies-list">
-                                        <li><b>Lessons:</b> Discrete Mathematics, Computer Science &amp; Communications,
-                                            Logic Design, Calculus, Physics I, Physics II, Databases I, Databases,
-                                            Databases II, Linear Algebra, Circuit Theory, Programming Methodologies
-                                            &amp; Languages, Probability &amp; Statistics, Java Programming, Computer
-                                            Architecture – Assembly, IT Project Management, Data Structures, Signals
-                                            &amp; Systems, Stochastic Analysis, Sets &amp; Numbers, Algorithms &amp;
-                                            Complexity, Analysis &amp; Design, Differential Equations, Computer
-                                            Communications, Advanced Topics in Programming Languages, Computer Networks,
-                                            Theory of Computation, Business Operations, Software Technology,
-                                            Telecommunications, Security, Systems Administration, Distributed Systems,
-                                        Legal Framework, Internet Programming, Artificial Intelligence</li>
-                                        <li><b>Languages:</b> Java, C#, C++, HTML, CSS, Xamarin Android, Assembly, C
-                                        </li>
-                                        <li><b>Individual projects during my studies:</b> Scrabble, Calculator, Currency
-                                        Converter, Bingo Game</li>
-                                    </ul>
+                        @for (var i = 0; i < _studies.Count; i++)
+                        {
+                            var study = _studies[i];
+                            var isFeatured = i == 0;
+
+                            <MudPaper Elevation="0"
+                                      Class="@(isFeatured ? "studies-record studies-record-featured pa-4" : "studies-record pa-4")">
+                                <MudStack Spacing="2">
+                                    <MudStack Row="true" AlignItems="AlignItems.Center" Justify="Justify.SpaceBetween">
+                                        @if (study.Badge is not null)
+                                        {
+                                            <MudChip T="string" Size="Size.Small" Variant="Variant.Filled" Color="Color.Success">@study.Badge</MudChip>
+                                        }
+                                        <MudText Typo="Typo.caption">@FormatPeriod(study)</MudText>
+                                    </MudStack>
+                                    <MudStack Row="true" AlignItems="AlignItems.Start" Spacing="2">
+                                        <MudIcon Icon="@(isFeatured ? Icons.Material.Filled.School : Icons.Material.Filled.Public)"
+                                                 Color="Color.Success" Size="Size.Large" />
+                                        <MudStack Spacing="1">
+                                            <MudText Typo="Typo.h6">@study.Title</MudText>
+                                            <MudText Typo="Typo.body2" Class="studies-secondary">
+                                                @(study.Department is null ? study.University : $"{study.Department} · {study.University}")
+                                            </MudText>
+                                        </MudStack>
+                                    </MudStack>
+                                    @if (study.Description is not null)
+                                    {
+                                        <MudText Typo="Typo.body2">@study.Description</MudText>
+                                    }
+                                    <MudPaper Elevation="0" Class="studies-projects pa-2">
+                                        <MudStack Spacing="1">
+                                            @if (study.ProgrammingLanguages.Count > 0)
+                                            {
+                                                <MudText Typo="Typo.subtitle2" Class="studies-eyebrow">Tools &amp; Programming languages</MudText>
+                                            }
+                                            <ul class="studies-list">
+                                                @if (study.Lessons.Count > 0)
+                                                {
+                                                    <li><b>Lessons:</b> @string.Join(", ", study.Lessons)</li>
+                                                }
+                                                @if (study.ProgrammingLanguages.Count > 0)
+                                                {
+                                                    <li><b>Languages:</b> @string.Join(", ", study.ProgrammingLanguages)</li>
+                                                }
+                                                @if (study.Projects.Count > 0)
+                                                {
+                                                    <li><b>Individual projects during my studies:</b> @string.Join(", ", study.Projects)</li>
+                                                }
+                                            </ul>
+                                        </MudStack>
+                                    </MudPaper>
+                                    <MudStack Row="true" AlignItems="AlignItems.Center" Spacing="1">
+                                        <MudIcon Icon="@Icons.Material.Filled.Place" Color="Color.Success" Size="Size.Small" />
+                                        <MudText Typo="Typo.caption">@study.Location</MudText>
+                                    </MudStack>
                                 </MudStack>
                             </MudPaper>
-                            <MudStack Direction="Row" AlignItems="AlignItems.Center" Spacing="1">
-                                <MudIcon Icon="@Icons.Material.Filled.Place" Color="Color.Success" Size="Size.Small" />
-                                <MudText Typo="Typo.caption">Samos, Greece</MudText>
-                            </MudStack>
-                        </MudStack>
-                    </MudPaper>
-
-                    <MudPaper Elevation="0" Class="studies-record pa-4">
-                        <MudStack Spacing="2">
-                            <MudStack Direction="Row" AlignItems="AlignItems.Center" Justify="Justify.SpaceBetween">
-                                <MudText Typo="Typo.caption">2013 — 2014 · 2 semesters</MudText>
-                            </MudStack>
-                            <MudStack Direction="Row" AlignItems="AlignItems.Start" Spacing="2">
-                                <MudIcon Icon="@Icons.Material.Filled.Public" Color="Color.Success" Size="Size.Large" />
-                                <MudStack Spacing="1">
-                                    <MudText Typo="Typo.h6">Informatics</MudText>
-                                    <MudText Typo="Typo.body2" Class="studies-secondary">University of Stuttgart · Vaihingen</MudText>
-                                    <MudPaper Elevation="0" Class="studies-projects pa-2">
-                                        <MudText Typo="Typo.body2" Class="studies-secondary"><b>Lessons:</b>
-                                            Programmierung, Physik 1, ElektroTechnische GL, DatenStrukturen und
-                                        Algorithmen, Höhere Mathematik 1</MudText>
-                                    </MudPaper>
-                                </MudStack>
-                            </MudStack>
-                            <MudStack Direction="Row" AlignItems="AlignItems.Center" Spacing="1">
-                                <MudIcon Icon="@Icons.Material.Filled.Place" Color="Color.Success" Size="Size.Small" />
-                                <MudText Typo="Typo.caption">Stuttgart, Germany</MudText>
-                            </MudStack>
-                        </MudStack>
-                    </MudPaper>
-                </MudStack>
-            </MudItem>
-            <MudItem xs="12" md="4">
-                <MudStack Spacing="2">
-                    <MudStack Direction="Row" AlignItems="AlignItems.Center" Justify="Justify.SpaceBetween">
-                        <MudText Typo="Typo.h5">Languages</MudText>
-                        <MudChip T="string" Size="Size.Small" Variant="Variant.Outlined" Color="Color.Success">Proficiency</MudChip>
+                        }
                     </MudStack>
-                    <MudPaper Elevation="0" Class="studies-language pa-4">
-                        <MudStack Spacing="1" AlignItems="AlignItems.Center">
-                            <MudStack Direction="Row" AlignItems="AlignItems.Center" Justify="Justify.SpaceBetween">
-                                <MudText Typo="Typo.h6">German · TestDaF</MudText>
-                                <MudChip T="string" Size="Size.Small" Variant="Variant.Filled" Color="Color.Success">C1</MudChip>
-                            </MudStack>
-                            <MudText Typo="Typo.body2">Spoken for 6 months at Volke Consulting GmbH</MudText>
-                            <MudText Typo="Typo.body2">Spoken for 2 years at TSG Solutions Group</MudText>
-                            <MudChip T="string" Size="Size.Small" Variant="Variant.Outlined" Color="Color.Success">TestDaF</MudChip>
+                </MudItem>
+                <MudItem xs="12" md="4">
+                    <MudStack Spacing="2">
+                        <MudStack Row="true" AlignItems="AlignItems.Center" Justify="Justify.SpaceBetween">
+                            <MudText Typo="Typo.h5">Languages</MudText>
+                            <MudChip T="string" Size="Size.Small" Variant="Variant.Outlined" Color="Color.Success">Proficiency</MudChip>
                         </MudStack>
-                    </MudPaper>
 
-                    <MudPaper Elevation="0" Class="studies-language pa-4">
-                        <MudStack Spacing="1" AlignItems="AlignItems.Center">
-                            <MudStack Direction="Row" AlignItems="AlignItems.Center" Justify="Justify.SpaceBetween">
-                                <MudText Typo="Typo.h6">English · Cambridge FCE</MudText>
-                                <MudChip T="string" Size="Size.Small" Variant="Variant.Filled" Color="Color.Success">B2</MudChip>
-                            </MudStack>
-                            <MudText Typo="Typo.body2">Spoken fluently for 2 years at Grenzebach GmbH</MudText>
-                            <MudText Typo="Typo.body2">Spoken fluently for 2 years at TSG Solutions Group</MudText>
-                            <MudChip T="string" Size="Size.Small" Variant="Variant.Outlined" Color="Color.Success">FCE</MudChip>
-                        </MudStack>
-                    </MudPaper>
+                        @foreach (var language in _languages)
+                        {
+                            <MudPaper Elevation="0" Class="studies-language pa-4">
+                                <MudStack Spacing="1" AlignItems="AlignItems.Center">
+                                    <MudStack Row="true" AlignItems="AlignItems.Center" Justify="Justify.SpaceBetween">
+                                        <MudText Typo="Typo.h6">@language.Name · @language.Certificate</MudText>
+                                        <MudChip T="string" Size="Size.Small" Variant="Variant.Filled" Color="Color.Success">@language.Level</MudChip>
+                                    </MudStack>
+                                    @foreach (var experience in language.Experiences)
+                                    {
+                                        <MudText Typo="Typo.body2">@experience</MudText>
+                                    }
+                                    <MudChip T="string" Size="Size.Small" Variant="Variant.Outlined" Color="Color.Success">@language.Certificate</MudChip>
+                                </MudStack>
+                            </MudPaper>
+                        }
 
-                    <MudAlert Severity="Severity.Success" Variant="Variant.Outlined" Class="studies-learning-note">
-                        <MudText Typo="Typo.subtitle2">Learning by doing</MudText>
-                        <MudText Typo="Typo.body2">Team projects and real-world collaboration have been an important part of my education.</MudText>
-                    </MudAlert>
-                </MudStack>
-            </MudItem>
-        </MudGrid>
+                        <MudAlert Severity="Severity.Success" Variant="Variant.Outlined" Class="studies-learning-note">
+                            <MudText Typo="Typo.subtitle2">Learning by doing</MudText>
+                            <MudText Typo="Typo.body2">Team projects and real-world collaboration have been an important part of my education.</MudText>
+                        </MudAlert>
+                    </MudStack>
+                </MudItem>
+            </MudGrid>
+        }
 
         <MudButton Href="/work" Variant="Variant.Outlined" Color="Color.Success" EndIcon="@Icons.Material.Filled.ArrowForward" Class="studies-next-link">Where I’ve worked</MudButton>
     </MudStack>
 </MudContainer>
+
+
+@code
+{
+    private bool _loadFailed;
+    private IReadOnlyList<Study>? _studies;
+    private IReadOnlyList<Language>? _languages;
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            _studies = await StudiesService.GetStudiesAsync();
+            _languages = await StudiesService.GetLanguagesAsync();
+        }
+        catch (Exception ex) when (ex is HttpRequestException or JsonException)
+        {
+            _loadFailed = true;
+        }
+    }
+
+    private static string FormatPeriod(Study study)
+    {
+        var years = $"{study.StartYear} — {study.EndYear}";
+        return study.Note is null ? years : $"{years} · {study.Note}";
+    }
+}

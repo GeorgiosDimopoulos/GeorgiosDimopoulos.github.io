@@ -11,4 +11,5 @@ public record Study(
     IReadOnlyList<string> Projects,
     string? Department = null,
     string? Badge = null,
-    string? Description = null);
+    string? Description = null,
+    string? Note = null);

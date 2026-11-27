@@ -1,5 +1,11 @@
 ﻿@page "/work"
 @using MudBlazor
+@using System.Globalization
+@using System.Text.Json
+@using MyPortfolio.Models
+@using MyPortfolio.Services
+
+@inject IJobsService JobsService
 
 <PageTitle>Work | Georgios Dimopoulos</PageTitle>
 
@@ -10,128 +16,80 @@
             <MudText Typo="Typo.subtitle1" Class="mb-4">Professional Experience</MudText>
         </header>
 
-        <div class="work-timeline">
-            @for (var i = 0; i < _jobs.Count; i++)
-            {
-                var job = _jobs[i];
-                <article class="work-experience work-tone-@(i % 4)">
-                    <span class="work-dot" aria-hidden="true"></span>
+        @if (_loadFailed)
+        {
+            <MudAlert Severity="Severity.Error">Could not load this section.</MudAlert>
+        }
+        else if (_jobs is null)
+        {
+            <MudProgressCircular Indeterminate="true" />
+        }
+        else
+        {
+            <div class="work-timeline">
+                @for (var i = 0; i < _jobs.Count; i++)
+                {
+                    var job = _jobs[i];
+                    <article class="work-experience work-tone-@(i % 4)">
+                        <span class="work-dot" aria-hidden="true"></span>
 
-                    <div class="work-head">
-                        <h2 class="work-company">@job.Company</h2>
-                        <span class="work-dates">@job.Dates</span>
-                    </div>
-                    <div class="work-meta">@job.Location</div>
-                    <p class="work-summary">@job.Summary</p>
+                        <div class="work-head">
+                            <h2 class="work-company">@job.Company</h2>
+                            <span class="work-dates">@FormatPeriod(job)</span>
+                        </div>
+                        <div class="work-meta">@job.Location</div>
+                        <p class="work-summary">@job.Summary</p>
 
-                    @foreach (var role in job.Roles)
-                    {
-                        <section class="work-role">
-                            <h3 class="work-role-title">
-                                @role.Title
-                                @if (role.Duration is not null)
-                                {
-                                    <span class="work-role-duration">@role.Duration</span>
-                                }
-                            </h3>
-                            <ul class="work-points">
-                                @foreach (var point in role.Points)
-                                {
-                                    <li>@point</li>
-                                }
-                            </ul>
-                            <div class="work-tags">
-                                @foreach (var tag in role.Tags)
-                                {
-                                    <span class="work-tag">@tag</span>
-                                }
-                            </div>
-                        </section>
-                    }
-                </article>
-            }
-        </div>
+                        @foreach (var role in job.Positions)
+                        {
+                            <section class="work-role">
+                                <h3 class="work-role-title">
+                                    @role.Title
+                                    @if (role.DurationMonths is not null)
+                                    {
+                                        <span class="work-role-duration">@role.DurationMonths months</span>
+                                    }
+                                </h3>
+                                <ul class="work-points">
+                                    @foreach (var point in role.Points)
+                                    {
+                                        <li>@point</li>
+                                    }
+                                </ul>
+                                <div class="work-tags">
+                                    @foreach (var tag in role.Tags)
+                                    {
+                                        <span class="work-tag">@tag</span>
+                                    }
+                                </div>
+                            </section>
+                        }
+                    </article>
+                }
+            </div>
+        }
     </MudPaper>
 </MudContainer>
 
 @code {
-    private record Role(string Title, string? Duration, string[] Points, string[] Tags);
-    private record Job(string Company, string Location, string Dates, string Summary, Role[] Roles);
+    private bool _loadFailed;
+    private IReadOnlyList<Job>? _jobs;
 
-    private readonly List<Job> _jobs = new()
+    protected override async Task OnInitializedAsync()
     {
-        new Job(
-            "TSG Group", "Munich", "Oct 2024 – Aug 2026",
-            "Technical development in the field of gas station solutions. German and English-speaking position.",
-            new[]
-            {
-                new Role("Backend and Web Development", "22 months",
-                    new[]
-                    {
-                        "Gas station management web application (main project)",
-                        "APIs, validation and integration tests for transactions, accounts and vouchers",
-                        "UI: data grids, filters, sorting, dialogs, error handling and notifications",
-                        "Small, isolated adjustments to a legacy production project"
-                    },
-                    new[] { ".NET", "Blazor", "REST APIs", "Integration Tests", "DataGrids", "Python" })
-            }),
+        try
+        {
+            _jobs = await JobsService.GetJobsAsync();
+        }
+        catch (Exception ex) when (ex is HttpRequestException or JsonException)
+        {
+            _loadFailed = true;
+        }
+    }
 
-        new Job(
-            "Volke Consulting Engineers", "BMW Group, Munich", "Feb 2024 – Jul 2024",
-            "Technical development in automotive engineering. German-speaking position.",
-            new[]
-            {
-                new Role("Backend and Database Development", "6 months",
-                    new[]
-                    {
-                        "Desktop frontend with remote data access",
-                        "Middleware for service orchestration and integrations",
-                        "Database scripts: queries, procedures, maintenance",
-                        "Handovers, documentation and cross-team collaboration in German"
-                    },
-                    new[] { ".NET WPF", "gRPC", "Java", "Spring Boot", "Oracle", "PL/SQL" })
-            }),
+    private static string FormatPeriod(Job job) =>
+        $"{FormatMonth(job.StartDate)} – {(job.EndDate is { } end ? FormatMonth(end) : "Present")}";
 
-        new Job(
-            "Grenzebach Maschinenbau GmbH Hellas", "Athens", "Sep 2021 – Oct 2023",
-            "Robotics and industrial automation for glass cutting. English-speaking position.",
-            new[]
-            {
-                new Role("ASP.NET Web Microservices", "14 months",
-                    new[]
-                    {
-                        "Backend tools with database migrations",
-                        "Integration and unit tests for reliability and regression prevention",
-                        "CI/CD pipelines and agile team workflow"
-                    },
-                    new[] { "ASP.NET", "EF Core", "Docker", "Jenkins", "GitHub", "Scrum", "Jira", "Confluence" }),
-                new Role("Quality Assurance Testing", "10 months",
-                    new[]
-                    {
-                        "UI/UX testing from an end-user perspective on VMs",
-                        "End-to-end test automation and structured test documentation"
-                    },
-                    new[] { "Selenium", "TestRail", "E2E Testing", "Virtual Machines" })
-            }),
-
-        new Job(
-            "Metro AEBE", "Athens", "Oct 2020 – Aug 2021",
-            "Trading and industrial company for food products. Greek-speaking position.",
-            new[]
-            {
-                new Role("Android Mobile Application", "6 months",
-                    new[]
-                    {
-                        "Mobile payment processing app for cashiers",
-                        "Device-focused UX and stable day-to-day flows"
-                    },
-                    new[] { ".NET Xamarin", "Android", "MVVM" }),
-                new Role("VB Access Application", "4 months",
-                    new[]
-                    {
-                        "Updates of the cashier application"
-                    },
-                    new[] { "VB", "Access", "MSSQL", "IIS" })
-            })
-    };
+    private static string FormatMonth(DateOnly date) =>
+        date.ToString("MMM yyyy", CultureInfo.InvariantCulture);
 }
